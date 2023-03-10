@@ -1,0 +1,108 @@
+.btn-fn-group {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+
+  .btn {
+    width: 60px;
+    padding: 0;
+    height: 50px;
+    font-family: Roboto Mono;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #525668;
+    background-color: #F7F8FA;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    border-radius: 4px;   
+    
+    &:hover, &.active {
+      color: #2C85F8;
+      background-color: #ebedf2;
+    }
+  }  
+}
+
+
+.list-group{
+  max-height: 180px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+.list-group-item {
+  font-style: normal;
+  font-weight: normal;
+  font-family: Poppins;
+  font-size: 15px;
+  line-height: 12px;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-items: left; 
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ebedf2;
+  }
+
+  &.header{
+    cursor:default ;
+    background:  #ebedf2;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+ 
+  .ts-info-type {
+    margin-left: 10px;
+    font-size: 11px;
+    line-height: 12px;
+    font-weight: bold;
+    font-family: Roboto Mono;
+    font-style: normal;
+    align-items: center;
+    text-align: center;
+    color: #2C85F8;
+    background: #E3EDFA;
+    border-radius: 4px;
+  }
+
+  .ts-info-count {
+    flex: 50px;
+    font-family: Poppins;
+    text-align: right;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 12px;
+
+    span {
+      width: 100%;
+      font-size: 12px;
+      font-weight: 200;
+    }
+  }
+}
+
+
+.badge-info {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), #2C85F8;
+  font-family: Roboto Mono;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 12px;
+  align-items: center;
+  text-align: center;
+  color: #2C85F8;
+}
+
+
+
+
+

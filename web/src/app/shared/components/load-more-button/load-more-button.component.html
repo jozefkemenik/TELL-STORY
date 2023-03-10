@@ -1,0 +1,7 @@
+<app-loading [loading]="loadMoreLoading">
+  <div class="my-2 text-center">
+    <button [disabled]="!loadMoreEnabled" (click)="loadMore.emit()" class="btn btn-dbconsole btn-icon btn-circle">
+      <i class="fas fa-angle-double-down"></i>
+    </button>
+  </div>
+</app-loading>

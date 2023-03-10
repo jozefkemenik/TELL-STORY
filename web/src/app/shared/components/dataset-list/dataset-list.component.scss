@@ -1,0 +1,23 @@
+app-dataset-list {
+  height: 100%;
+}
+
+:host div.table-responsive {
+  height: 100%;
+}
+
+:host .btn-dataset-type[disabled] {
+  color: #93A2DB;
+  background-color: #F0F3FF;
+  border-color: #F0F3FF;
+}
+
+:host table.table-datasets {
+  color: #575962;
+}
+
+:host .btn-dataset-action {
+  color: #93A2DB;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}

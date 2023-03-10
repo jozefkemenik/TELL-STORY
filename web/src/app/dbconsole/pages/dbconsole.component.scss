@@ -1,0 +1,49 @@
+:host .row .sp {
+  background-color: #EBEBEB;
+  border-bottom: 4px solid transparent;
+}
+
+:host .toolbar {
+  padding: 3px;
+  height: 38px;
+}
+
+:host .sidebar-right {
+  background-color: white;
+  overflow: auto;
+  height: 100vh;
+}
+
+:host .table-head {
+  background-color: #F9F9FC;
+}
+
+:host .table.table-saved-queries {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+:host .table.table-saved-queries tr td:first-child {
+  cursor: pointer;
+}
+
+:host .dataset-view-switch {
+  color: #868AA8;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+:host .btn-dbconsole {
+  color: #868AA8;
+  background-color: #EBEDF2;
+  border-color: #EBEDF2
+}
+
+:host .dbconsole-table-actions {
+  min-width: 7.5rem;
+}

@@ -1,0 +1,25 @@
+.top-menu-bar{
+.navbar {
+  background: #2C85F8; /* Old browsers */
+  background: -moz-linear-gradient(left, #F5F6FC 0, #F5F6FC 9rem, #2C85F8 9rem); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #F5F6FC 0, #F5F6FC 9rem, #2C85F8 9rem); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #F5F6FC 0, #F5F6FC 9rem, #2C85F8 9rem); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5F6FC', endColorstr='#2C85F8', GradientType=1); /* IE6-9 */
+}
+
+.navbar .navbar-brand img {
+  width: 6rem;
+}
+
+.navbar .nav-item .nav-link {
+  color: #FFFFFF;
+  border-radius: 10rem;
+}
+
+
+.navbar .nav-item.active .nav-link {
+  background-color: #63A7FF;
+  color: #F5F6FC;
+}
+}
+

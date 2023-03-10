@@ -1,0 +1,212 @@
+//
+// Override Bootstrap Variables
+//
+
+
+
+
+$enable-rounded: $ts-rounded; // pass rounded corners setting to bootstrap SASS
+
+// Fonts
+$font-family-base:									ts-get($ts-font-families, regular);
+
+
+
+// Color System
+$primary:       									ts-get($ts-state-colors, primary, base) ;
+$secondary:     									#e1e1ef ;
+$success:       									ts-get($ts-state-colors, success, base) ;
+$info:          									ts-get($ts-state-colors, info, base) ;
+$warning:       									ts-get($ts-state-colors, warning, base) ;
+$danger:        									ts-get($ts-state-colors, danger, base) ;
+$light:         									#f8f9fa ;
+$dark:          									#343a40 ;
+
+$theme-colors: (
+												  	"primary":    $primary,
+												   	"secondary":  $secondary,
+												    "success":    $success,
+												    "info":       $info,
+												    "warning":    $warning,
+												    "danger":     $danger,
+												    "light":      $light,
+												    "dark":       $dark
+);
+
+
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: 									$ts-media-breakpoints ;
+
+// Border Radiues
+$border-radius:               						.25rem ;
+$border-radius-lg:            						.3rem ;
+$border-radius-sm:            						.2rem ;
+
+
+// Form & Button Controls
+$btn-font-weight:             						normal ;
+$input-plaintext-color:                 			ts-base-color(label, 3) ;
+$input-placeholder-color:               			ts-base-color(label, 2) ;
+
+$btn-secondary-color:								ts-base-color(label, 3) ;
+$btn-secondary-hover-bg-color:						#f4f5f8 ;
+$input-border-radius:                   			$ts-border-radius ;
+$input-btn-padding-y:       						.65rem;
+$input-btn-padding-x:       						1rem;
+$input-btn-line-height:     						1.5;
+
+$input-btn-padding-y-sm:    						.5rem;
+$input-btn-padding-x-sm:    						1rem;
+$input-btn-line-height-sm:  						1.5;
+
+$input-btn-padding-y-lg:    						1.15rem;
+$input-btn-padding-x-lg:    						1.65rem;
+$input-btn-line-height-lg:  						1.5;
+
+$input-border-color:								ts-base-color(grey, 3) ;
+$input-focus-border-color:							lighten(ts-state-color(brand, base), 12%);
+$input-disabled-bg:                     			ts-base-color(grey, 1) ;
+$input-readonly-bg:                     			#ffffff ;
+$input-group-icon-color:                     		ts-base-color(label, 2) ;
+
+$input-group-addon-color:               			ts-base-color(label, 2) ;
+$input-group-addon-bg:                  			ts-base-color(grey, 1) ;
+
+// Button elevate shadows
+$btn-elevate-shadow-1:								0px 0px 11px 0px rgba(56,36,99,0.08);
+$btn-elevate-shadow-1-hover:						0px 0px 22px 0px rgba(56,36,99,0.11);
+$btn-elevate-shadow-2:								0px 0px 11px 0px rgba(56,36,99,0.10);
+$btn-elevate-shadow-2-hover:						0px 0px 22px 0px rgba(56,36,99,0.13);
+$btn-elevate-shadow-3:								0px 0px 11px 0px rgba(56,36,99,0.12);
+$btn-elevate-shadow-3-hover:						0px 0px 22px 0px rgba(56,36,99,0.15);
+
+
+// Table
+$table-bg:                      					transparent ;
+$table-accent-bg:               					lighten(#f4f5f8, 1%);
+$table-hover-bg:                					lighten(#f4f5f8, 2%);
+$table-active-bg:               					ts-state-color(primary, base);
+
+$table-border-color:            					ts-base-color(grey, 2);
+
+$table-head-bg:                 					ts-base-color(grey, 2);
+$table-head-color:              					ts-base-color(label, 3);
+
+
+// Card
+$card-border-color:                 				ts-base-color(grey, 2) ;
+$card-cap-bg:                       				ts-base-color(grey, 1) ;
+
+
+// List group
+$list-group-border-color:           				ts-base-color(grey, 2) ;
+$list-group-hover-bg:               				ts-base-color(grey, 2) ;
+
+
+// Modal
+$modal-inner-padding:								1.25rem ;
+$modal-header-padding:								1.25rem ;
+
+$modal-content-border-color:        				ts-base-color(grey, 2) ;
+$modal-content-box-shadow-xs:       				0 .25rem .5rem rgba(ts-base-color(grey, 2), .5) ;
+$modal-content-box-shadow-sm-up:   	 				0 .5rem 1rem rgba(ts-base-color(grey, 2), .5) ;
+
+$modal-header-border-color:         				ts-base-color(grey, 2) ;
+$modal-footer-border-color:         				ts-base-color(grey, 2) ;
+
+
+// Pagination
+$pagination-color:                  				ts-state-color(brand, base) ;
+$pagination-border-color:           				ts-base-color(grey, 2) ;
+
+$pagination-hover-bg:              	 				ts-base-color(grey, 2) ;
+$pagination-hover-border-color:     				ts-base-color(grey, 2) ;
+
+$pagination-disabled-border-color:  				ts-base-color(grey, 2) ;
+
+
+
+// Popovers
+$popover-font-size:                 				0.9rem ;
+$popover-max-width:                 				276px ;
+$popover-border-width:              				1px ;
+$popover-border-color:              				#ffffff ;
+$popover-border-radius:             				3px ;
+$popover-box-shadow:                				0px 0px 20px 0px rgba(0,0,0,0.15) ;
+
+$popover-header-bg:                 				#ffffff ;
+$popover-header-color:              				ts-base-color(label, 3) ;
+$popover-header-padding-y:          				1rem ;
+$popover-header-padding-x:          				1.25rem ;
+
+$popover-body-color:                				ts-base-color(label, 2) ;
+
+
+
+// Tooltips
+$tooltip-font-size:                 				0.9rem ;
+$tooltip-max-width:                 				200px ;
+$tooltip-color:                     				ts-base-color(label, 3) ;
+$tooltip-bg:                        				#ffffff ;
+$tooltip-border-radius:             				3px ;
+$tooltip-opacity:                   				1 ;
+$tooltip-padding-y:                 				.75rem ;
+$tooltip-padding-x:                 				1rem ;
+$tooltip-margin:                    				0 ;
+
+// Custom Toasts
+$toast-zindex:										$ts-dropdown-zindex + 100 ;
+$toast-spacing:										2rem  ;
+$toast-width: 										350px ;
+$toast-box-shadow:									$ts-dropdown-shadow ;
+
+$toast-header-color: 								ts-base-color(label, 3) ;
+$toast-header-background-color: 					#fff ;
+$toast-header-border-color:							ts-base-color(grey, 2) ;
+
+
+
+// Progress bars
+$progress-bg:                       				ts-get-color() ;
+
+
+
+// Dropdown
+$dropdown-box-shadow:								$ts-dropdown-shadow;
+$zindex-dropdown:                   				$ts-dropdown-zindex ;
+
+
+
+// Text muted
+$text-muted:                  						ts-base-color(label, 2) ;
+
+
+
+// Badges
+$badge-padding-y:                   				.5em ;
+$badge-padding-x:                   				.75em ;
+$badge-font-size:                   				85% ;
+
+
+// Grid columns
+$grid-gutter-width:           						20px ;
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+$dropdown-link-color:               				ts-base-color(label, 2) ;
+$dropdown-link-hover-color:         				ts-base-color(label, 3) ;
+$dropdown-link-hover-bg:            				ts-base-color(grey, 1) ;
+
+$dropdown-link-active-color:        				ts-brand-color(inverse) ;
+$dropdown-link-active-bg:           				ts-brand-color() ;
+
+$dropdown-link-disabled-color:      				ts-base-color(label, 1) ;
+
+$dropdown-header-color:             				ts-base-color(label, 2) ;

@@ -1,0 +1,39 @@
+<div class="table-responsive">
+  <app-loading [loading]="loading">
+    <app-table
+      [options]="listTableOptions"
+      [tableKeys]="getTableKeys()"
+      [tableData]="datasets"
+      [loadMoreLoading]="loadingMore"
+      [loadMoreEnabled]="loadingMoreEnabled"
+      (loadMore)="loadMore.emit()"
+      (rowClick)="selectedChange($event.datasetId, !selectedDatasets[$event.datasetId], 'row')"
+    >
+      <ng-template let-dataset="entry" let-key="key" #customDataColumnTemplate>
+        <ng-container [ngSwitch]="key">
+          <ng-container *ngSwitchCase="'checkbox'">
+            <app-checkbox
+              [state]="!!selectedDatasets[dataset.datasetId]"
+              (stateChange)="selectedChange(dataset.datasetId, $event, 'checkbox')"
+            ></app-checkbox>
+          </ng-container>
+          <ng-container *ngSwitchCase="'typeIcon'">
+            <!--                    [ngClass]="{active: }"-->
+            <!--                    (click)="togleDatasetSelect(dataset)"-->
+            <button class="btn btn-dataset-type btn-circle btn-icon"
+                    disabled="disabled"
+            ><i class="fas fa-table"></i></button>
+          </ng-container>
+          <ng-container *ngSwitchCase="'name'"><span class="lead">{{ dataset.datasetName }}</span><br><small class="text-muted">{{ generateCreatedTimeString(dataset) }}</small></ng-container>
+          <ng-container *ngSwitchCase="'uuid'"><small class="text-muted">{{ dataset.datasetUID }}</small></ng-container>
+          <ng-container *ngSwitchCase="'rows'">{{ generateRowsCountString(dataset) }} rows</ng-container>
+          <ng-container *ngSwitchCase="'columns'">{{ dataset.columnsCount }} cols</ng-container>
+          <ng-container *ngSwitchCase="'size'">34.5 MB</ng-container>
+        </ng-container>
+      </ng-template>
+      <ng-template *ngIf="actionButton" let-dataset="entry" #customActionColumnTemplate>
+        <button (click)="goToDatasetDetail(dataset)" class="pull-right btn btn-dataset-action btn-circle btn-icon"><i class="fas fa-ellipsis-h"></i></button>
+      </ng-template>
+    </app-table>
+  </app-loading>
+</div>

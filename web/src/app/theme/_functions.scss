@@ -1,0 +1,119 @@
+//
+// Helper Functions
+//
+
+
+
+
+@function ts-unitless($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+@function ts-get($map, $keys...) {
+    @if length($keys) == 1 {
+        $keys: nth($keys, 1);
+    }
+
+    $warn: "#{nth($keys, 1)}";
+    $length: length($keys);
+    $get: map-get($map, nth($keys, 1));
+
+    @if $length > 1 {
+        @for $i from 2 through $length {
+            @if $get != null and type-of($get) == 'map' {
+                $warn: $warn + "->#{nth($keys, $i)}";
+                $get: map-get($get, nth($keys, $i));
+
+                @if $get == null {
+                    @return null;
+                }
+            }
+            @else {
+                @return ts-get-warning($warn, $get, nth($keys, $i));
+            }
+        }
+    }
+
+    @return $get;
+}
+
+@function ts-has($map, $keys...) {
+    @if length($keys) == 1 {
+        $keys: nth($keys, 1);
+    }
+
+    $warn: "#{nth($keys, 1)}";
+    $length: length($keys);
+    $get: map-get($map, nth($keys, 1));
+
+    @if $length > 1 {
+        @for $i from 2 through $length {
+            @if $get != null and type-of($get) == 'map' {
+                $warn: $warn + "->#{nth($keys, $i)}";
+                $get: map-get($get, nth($keys, $i));
+
+                @if $get == null {
+                    @return false;
+                }
+            }
+            @else {
+                 @return false;
+            }
+        }
+    }
+
+    @if $get != null {
+        @return true;
+    } 
+    @else {
+        @return false;   
+    }
+}
+
+@function ts-get-warning($warn, $get, $key) {
+    @if $get == null {
+        @warn "Map has no value for key search `#{$warn}`";
+    }
+    @else if type-of($get) != 'map' {
+        @warn "Non-map value found for key search `#{$warn}`, cannot search for key `#{$key}`";
+    }
+    @return null;
+}
+
+@function ts-display-color($color) {
+    @if (lightness( $color ) > 50) {
+      @return darken($color, 50%);
+    }
+    @else {
+      @return lighten($color, 50%);
+    }
+}
+
+@function ts-state-color($name, $type: null) {
+    @if ($type == null) {
+        $type: base;
+    }
+
+    @return ts-get($ts-state-colors, $name, $type);
+}
+
+@function ts-brand-color($type: null) {
+    @return ts-state-color(brand, $type);
+}
+
+@function ts-base-color($type, $level) {
+    @return ts-get($ts-base-colors, $type, $level);
+}
+
+@function ts-media-breakpoint($type) {
+    @if (ts-has($ts-media-breakpoints, $type)) {
+        @return ts-get($ts-media-breakpoints, $type);
+    } @else {
+        @return $type;
+    }   
+}
+

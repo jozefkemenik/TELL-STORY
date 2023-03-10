@@ -1,0 +1,30 @@
+{
+    "id": 8938,
+    "suid": "d113d033-6258-49dc-9b44-26a55b45eed0",
+    "name": "",
+    "layoutConfiguration": {
+        "position": {
+            "left": 0,
+            "top": 0
+        },
+        "style": {
+            "color": "white"
+        }
+    },
+    "rootwidget": {
+        "Id": 8937,
+        "wuid": "aef2eb80-9faf-4aec-830f-cd91d611d82b",
+        "wtuid": "widget_parent",
+        "type": "dockerWidget",
+        "layoutConfiguration": null,
+        "dataConfiguration": null,
+        "widgets": [
+            {
+                "wuid": 8939,"wtuid": "widget_category_chart_basic"
+            },
+            {
+                "wuid": 8940, "wtuid": "widget_text_formula"
+            }
+        ]
+    }
+}

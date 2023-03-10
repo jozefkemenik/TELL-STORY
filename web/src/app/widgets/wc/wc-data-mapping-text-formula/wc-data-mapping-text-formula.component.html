@@ -1,0 +1,76 @@
+<span class="wc-sub-header w-100 ">
+    <i class="la la-file-text"></i>
+    <label>{{'t_Datasets'| translate }}</label>
+</span>
+
+<!-- <app-progress-bar *ngIf="_loadingDataset"></app-progress-bar> -->
+<div class="btn-group btn-group-sm w-100" dropdown [isDisabled]="!(datasets && datasets.length>0)" container="body"
+    (isOpenChange)="!$event && datasetChanged()">
+    <button dropdownToggle id="dropdown-dataset" type="button" class="btn btn-outline-primary btn-dataset dropdown-toggle">
+        {{selectedDs && selectedDs.datasetName? selectedDs.datasetName:'t_SelectEntry' | translate}}
+    </button>
+
+    <ul id="dropdown-dataset" *dropdownMenu class="dropdown-menu" role="menu">
+        <li *ngFor="let ds of datasets" (click)="selectedDs=ds" role="menuitem">
+            <a class="dropdown-item">{{ds.datasetName}}</a>
+        </li>
+    </ul>
+</div>
+
+<span class="wc-sub-header">
+    <i class="la la-sliders"></i>
+    <label>{{'t_DataOperation'| translate }}</label>
+</span>
+
+
+<div class="form-group">
+    <!-- <label>{{'t_ColumnY'| translate }}</label> -->
+    <div class="btn-group btn-group-sm mb-2" dropdown container="body" [isDisabled]="!(yAxis && yAxis.length>0)"
+        (isOpenChange)="!$event" [insideClick]="dropDownInsideClickEnabled">
+        <button dropdownToggle id="ddyAxisValue" type="button" class="btn btn-outline-primary btn-fn dropdown-toggle">
+            <div class="fn-type">{{yFuncName}}</div>
+            <div class="btn-content">
+                {{yAxisValue && yAxisValue.columnName? yAxisValue.columnName : 't_SelectEntry'| translate }}
+                <span *ngIf="yAxisValue && yAxisValue.columnTypeName" class="badge badge-info ts-info-type">
+                    {{yAxisValue && yAxisValue.columnTypeName? yAxisValue.columnTypeName : ''}}
+                </span>
+            </div>
+        </button>
+
+        <app-dd-content-data-mapping *dropdownMenu id="ddyAxisValue" class="dropdown-menu dd-content-function yAxis"
+            role="menu"  [columns]="yAxis" [allFunctions]="allFunctions" [selectedFn]="yFuncValue"
+            [functions]="yFuncs" (onFnSelect)="onYFuncChange($event)" (onColSelect)="onYAxisChange($event)" (onSearchClicked)="handleSearchClicked($event)">
+        </app-dd-content-data-mapping>
+    </div>
+</div>
+
+
+
+<span class="wc-sub-header">
+  <i class="la la-sliders"></i>
+  <label>{{'t_Options'| translate }}</label>
+</span>
+
+<div class="row">
+  <div class="col pb-3">
+          <div class="form-group">
+                  <label for="formInputPreffix">Preffix</label>
+                  <input type="text" class="form-control" id="formInputPreffix"
+                          [formControl]="inputValuePreffix" (keyup)="onChangePreffix()" placeholder="Preffix">
+          </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col pb-3">
+          <div class="form-group">
+                  <label for="formInputSuffix">Suffix</label>
+                  <input type="text" class="form-control" id="formInputSuffix"
+                          [formControl]="inputValueSuffix" (keyup)="onChangeSuffix()" placeholder="Suffix">
+          </div>
+  </div>
+</div>
+
+
+<!-- </div>
+</div> -->

@@ -1,0 +1,11 @@
+<div class="ts-input-icon-pill"
+  [ngClass]="{
+    'ts-input-icon-left': leftIcon,
+    'ts-input-icon-right': rightIcon
+  }">
+
+  <!--suppress HtmlFormInputWithoutLabel -->
+  <input [(ngModel)]="inputValue" type="text" class="form-control form-control-pill" placeholder="{{ placeholder }}" />
+  <span *ngIf="leftIcon" class="ts-input-icon-icon ts-input-icon-icon-left"><i class="{{ leftIcon }}"></i></span>
+  <span *ngIf="rightIcon" class="ts-input-icon-icon ts-input-icon-icon-right"><i class="{{ rightIcon }}"></i></span>
+</div>

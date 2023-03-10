@@ -1,0 +1,35 @@
+<div class="btn-fn-group">
+  <div class="btn-group" role="group" aria-label="First group">
+    <button type="button" *ngFor="let item of allFunctions" (click)="onSelectedFn(item)"
+      [class.active]="_selectedFn==item" class="btn btn-primary" [disabled]="!item.enabled">{{item.name}}</button>
+  </div>
+</div>
+<div class="form-group">
+  <label>{{ title| translate }}</label>
+  <div class="ts-input-icon ts-input-icon-left">
+    <input [(ngModel)]="paramTextValue" type="text" class="form-control" placeholder="Search"
+      (keyup)="paramTextValueChanged()" (click)="onClickedSearch()"/>
+    <span  class=" ts-input-icon-icon ts-input-icon-icon-left"><i class="fas fa-search"></i></span>
+
+  </div>
+</div>
+
+<perfect-scrollbar class="list-group">
+  <ul style="padding-inline-start: 0">
+    <li class="list-group-item" [class.header]="par.datasetName" *ngFor="let par of listOfCols; index as i;"
+      (click)="!par.datasetName && onSelectedCol(par)">
+      <ng-container *ngIf="!par.datasetName">
+        <div>{{par.columnName}}
+          <span class="badge badge-info ts-info-type">{{par.columnTypeName}}</span>
+        </div>
+        <!-- <div class="ts-info-count">
+        <div>{{par.totalNmb}}</div>
+        <span>{{par.totalNmbDesc}}</span>
+      </div> -->
+      </ng-container>
+      <ng-container *ngIf="par.datasetName">
+        <h6>{{par.datasetName}}</h6>
+      </ng-container>
+    </li>
+  </ul>
+</perfect-scrollbar>

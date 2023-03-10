@@ -1,0 +1,25 @@
+
+
+    <div class="page" id="canvas-content" *ngFor="let pageItem of pages">
+        <div class="draggable" id="{{item.id}}" *ngFor="let item of items; let $last = last" 
+             [isLast]='$last'            
+             (ngInit)="createWidgetElm(item.id)">
+             
+           
+            <div class="rotateable"
+            [class.invalid]="!item.wContent.isValid" 
+            [class.active]="item.isActive"
+            (click)="clickItemGrid(item.id)">
+                <app-progress-bar *ngIf="item.wContent.isLoading"></app-progress-bar>
+                <div class="remove flaticon2-cross not-printable" (click)="deleteItem(item.id)"></div>
+                <div class="zindex zindex-up flaticon2-arrow-up not-printable"></div>
+                <div class="flaticon2-reload rotate not-printable"></div>
+                <div class="zindex zindex-down flaticon2-arrow-down not-printable"></div>
+                <div class="drag">
+                    <app-widget-factory 
+                    (onWPositionLoad)="onWPositionLoad($event)"
+                    [widgetContent]="item.wContent"></app-widget-factory>
+                </div>
+            </div>
+        </div>
+    </div>

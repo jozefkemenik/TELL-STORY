@@ -1,0 +1,25 @@
+<div class="mx-2">
+        <tabset class="nav-tabs-line nav-tabs-line-primary  nav-tabs-line-2x full-width">
+                <tab *ngIf="wccsData.length">
+                        <ng-template tabHeading>
+                                <i class="la la-database"></i> {{'t_Data' | translate}}
+                        </ng-template>
+                 
+                                <app-widget-factory *ngFor="let wcc of wccsData; index as i;"
+                                        [widgetControlContent]="wcc"></app-widget-factory>
+
+                   
+                </tab>
+                <tab  *ngIf="wccsStyle.length">
+                        <ng-template tabHeading>
+                                <i class="la la-cog"></i> {{'t_Style' | translate}}
+                        </ng-template>
+             
+
+                                <app-widget-factory *ngFor="let wcc of wccsStyle; index as i;"
+                                        [widgetControlContent]="wcc"></app-widget-factory>
+
+                    
+                </tab>
+        </tabset>
+</div>

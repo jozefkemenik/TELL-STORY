@@ -1,0 +1,74 @@
+<div class="container pos-abs">
+
+  <div class="d-flex align-items-center header">
+    <div class="mr-auto header-title justify-content-start">
+      <h4 class="text-dataset-heading m-0">{{'t_MyStories' | translate}}</h4>
+    </div>
+  </div>
+
+  <app-loading [loading]="loadingStories">
+    <div class="content mb-5">
+      <div class="row mx-auto">
+        <div class="col-auto addAuto">
+          <div class="story-containerAdd mr-auto ml-auto">
+            <div class="flex-containerAddStory">
+              <img *ngIf="!checkStoryExist" class="img-add-story" alt="new-story"
+                src="../../../../assets/img/new_stories.png">
+              <label *ngIf="!checkStoryExist" class="lbl-new-story"> {{'t_CreateYourFirstStory' | translate}} </label>
+
+              <div class="btn-group inner-element">
+                <div class="ts-btn-icon-newstory" (click)="createNewStory()">
+                  <i class="la la-plus"></i>
+                </div>
+                <div *ngIf="checkStoryExist" class="div-add-newstory"> {{'t_NewStory' | translate}} </div>
+              </div>
+            </div>
+            <div class="story-container-body">
+              <div class="story-container-body-title">
+                <span></span>
+              </div>
+              <span class="story-container-body-date"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-auto " *ngFor="let story of stories; trackBy: trackByFunction">
+          <app-atoms-card (click)="showStory(story.id)" [item]="story"> </app-atoms-card>
+        </div>
+      </div>
+    </div>
+  </app-loading>
+</div>
+
+
+<div class="container">
+
+  <div class="d-flex p-5 mt-1 mb-1" #header>
+    <div class="mr-auto justify-content-start">
+      <h4 class="text-dataset-heading m-0">{{'t_RecentDataSets' | translate}}</h4>
+    </div>
+    <div class="justify-content-end d-flex">
+      <a routerLink="/dataset/create" class="btn btn-dataset-create btn-pill pull-right ml-3" href="#" role="button">
+        <i class="fas fa-plus"></i> {{'t_AddDataSet' | translate}}
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card py-3 single-scrollable-content" [style.height.px]="tableCardHeight" #tableCard>
+        <app-loading [loading]="loadingDataSets">
+          <app-dataset-list *ngIf="datasets && (datasets.totalRecords > 0)" 
+            [loading]="loading"
+            [datasets]="datasets.datasets"
+            [loadingMore]="loadingMore"
+            [loadingMoreEnabled]="(page * pageLength) < datasets.totalRecords"
+            [actionButton]="true"
+            [showUuid]="true"
+            (loadMore)="loadMore()">
+          </app-dataset-list>
+        </app-loading>
+      </div>      
+    </div>
+  </div>
+
+</div>

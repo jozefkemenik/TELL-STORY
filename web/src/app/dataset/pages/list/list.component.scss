@@ -1,0 +1,29 @@
+:host .btn-dataset-create {
+  color: #FB407C;
+  background-color: #FFECF2;
+  border-color: #FFECF2
+}
+
+:host .text-dataset-heading {
+  color: #3F4047;
+}
+
+:host .btn-dataset-type {
+  color: #93A2DB;
+  background-color: #F0F3FF;
+  border-color: #F0F3FF;
+}
+
+:host .btn-dataset-type.active {
+  border-color: #6c757d;
+}
+
+:host table.table-datasets {
+  color: #575962;
+}
+
+:host .btn-dataset-action {
+  color: #93A2DB;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}

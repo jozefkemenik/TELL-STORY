@@ -1,0 +1,46 @@
+{
+    "name": "widget_histogram_chart",
+    "label": "t_title",
+    "desc": "t_desc",
+    "icon": "icon.svg",
+    "widgetControls": [
+        {
+            "order": 1,
+            "name": "wc-input",
+            "subjName": "title",
+            "type": "style",
+            "label": "Title",
+            "placeholder": "title text here",
+            "desc": "",
+            "tt": "this set widget title",
+            "value": "this is title set by parameter from manifest.json",
+            "minValue": "",
+            "maxValue": "",
+            "precision": "",
+            "scale": "",
+            "step": ""
+        },
+        {
+            "order": 1,
+            "name": "wc-data-mapping-category-chart",
+            "subjName": "dataMappingColumnChart",
+            "type": "data",
+
+            "displayXAxisControl": true,
+            "displayYAxisControl": false,
+            "displayPreffixSuffix": false,
+
+            "displayInputText":false,
+
+            "maxLimit": 0,
+            "maxBucket": 30,
+            "allowedColumTypes": [
+                "System.Int32",
+                "System.Int64",
+                "System.Double",
+                "System.Single"
+            ]
+
+        }
+    ]
+}

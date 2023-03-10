@@ -1,0 +1,42 @@
+  <perfect-scrollbar (psYReachEnd)="scrollbarReachEnd()">
+    <table class="table table-hover m-0" [ngClass]="options.border ? 'table-bordered' : 'table-borderless'">
+      <thead *ngIf="options.header">
+      <tr>
+        <th class="sticky-top" *ngFor="let header of (tableHeaders ? tableHeaders : tableKeys)">{{ header }}</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of tableData" (click)="rowClick.emit(entry)">
+          <td *ngFor="let key of tableKeys" class="pl-3 align-middle">
+            <ng-container *ngIf="customDataColumnTemplate; else defaultDataColumn">
+              <ng-template
+                [ngTemplateOutlet]="customDataColumnTemplate"
+                [ngTemplateOutletContext]="{entry: entry, key: key}"
+              ></ng-template>
+            </ng-container>
+            <ng-template #defaultDataColumn>{{ entry[key] }}</ng-template>
+          </td>
+          <td *ngIf="customActionColumnTemplate" class="align-middle">
+            <ng-template
+              [ngTemplateOutlet]="customActionColumnTemplate"
+              [ngTemplateOutletContext]="{entry: entry}"
+            ></ng-template>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot *ngIf="options.loadMore && !(options.automaticLoadMore && !loadMoreLoading)">
+        <tr>
+          <td [colSpan]="tableKeys.length + (customActionColumnTemplate ? 1 : 0)">
+            <app-load-more-button *ngIf="!options.automaticLoadMore"
+                                  (loadMore)="loadMore.emit()"
+                                  [loadMoreLoading]="loadMoreLoading"
+                                  [loadMoreEnabled]="loadMoreEnabled"
+            ></app-load-more-button>
+            <app-loading *ngIf="options.automaticLoadMore"
+                         [loading]="loadMoreLoading"
+            ></app-loading>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </perfect-scrollbar>

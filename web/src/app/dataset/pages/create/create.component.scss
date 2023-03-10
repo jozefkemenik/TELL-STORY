@@ -1,0 +1,27 @@
+:host .btn-icon-text {
+  color: #8689a6;
+  background: transparent;
+  border: none;
+}
+
+:host .btn-icon-text:hover {
+  color: white;
+  background-color: #c2d9fc;
+}
+:host .btn-icon-text:active, :host .btn-icon-text.active {
+  color: white;
+  background-color: #c2d9fc;
+  border:none;
+}
+:host .btn-icon-text:active:hover, :host .btn-icon-text:active:focus {
+  color: white;
+  background-color: #c2d9fc;
+  border:none;
+  outline:none;
+}
+:host .btn-icon-text:focus {
+  color: #4485f6;
+  background-color: white;
+  border:none;
+  outline:none;
+}

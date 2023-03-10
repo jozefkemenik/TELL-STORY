@@ -1,0 +1,42 @@
+<perfect-scrollbar (psYReachEnd)="scrollbarReachEnd()">
+  <table class="table table-bordered table-hover mb-0"
+         [ngClass]="options.border ? 'table-bordered' : 'table-borderless'">
+    <thead *ngIf="options.header">
+    <tr>
+      <th class="sticky-top" *ngFor="let header of (tableHeaders ? tableHeaders : tableKeys)">{{ header }}
+        <i *ngIf="options.sortable" class="pull-right fas fa-fw fa-sort dataset-data-sort-icon"
+           [ngClass]="{
+                      'fa-sort': orderColumn !== header,
+                      'fa-sort-up': (orderColumn === header) && (orderDirection === 'ASC'),
+                      'fa-sort-down': (orderColumn === header) && (orderDirection === 'DESC')
+                    }"
+           (click)="changeOrder(header)"
+        ></i><br *ngIf="subheaderTemplate">
+        <ng-template *ngIf="subheaderTemplate"
+                     [ngTemplateOutlet]="subheaderTemplate"
+                     [ngTemplateOutletContext]="{columnHeader: header}"
+        ></ng-template>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of tableData.data[tableKeys[0]]; index as i">
+      <td *ngFor="let key of tableKeys">{{ tableData.data[key][i] }}</td>
+    </tr>
+    </tbody>
+    <tfoot *ngIf="options.loadMore">
+    <tr>
+      <td [colSpan]="tableKeys.length">
+        <app-load-more-button *ngIf="!options.automaticLoadMore"
+          (loadMore)="loadMore.emit()"
+          [loadMoreLoading]="loadMoreLoading"
+          [loadMoreEnabled]="loadMoreEnabled"
+        ></app-load-more-button>
+        <app-loading *ngIf="options.automaticLoadMore"
+                     [loading]="loadMoreLoading"
+        ></app-loading>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</perfect-scrollbar>

@@ -1,0 +1,281 @@
+{
+  "totalRecords":500,
+"stories":
+[{
+    "id":
+    4237,"suid":
+    "3f2f1b3d-3ad4-4403-893d-0c76286ede3d","name":
+    "test story","layoutConfiguration":"",
+    "rootwidget":
+    {
+    "Id":
+    4236,"wuid":
+    "04f25640-253b-465d-a502-1349fb865c87","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    {
+    "Id":
+    4826,"wuid":
+    "db26e46d-b069-475e-b2d2-8a8165966118","wtuid":
+    "widget_line_chart_single","type":
+    "dockingWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    {
+       "binding":{
+          "dataset":"81c6b169-4f8f-4b8b-ae42-3ce550ef5b68",
+          "xAxis":{
+             "name":"Gender",
+             "columnName":"gender",
+             "function":"DistinctValues"
+          },
+          "yAxis":{
+             "name":"Visitors Count",
+             "columnName":"targetId",
+             "function":"Count"
+          }
+       }
+    }}
+    ]
+    }
+    }
+    ,{
+    "id":
+    4675,"suid":
+    "85b235a0-f817-4d70-9641-e812c9bfd210","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4674,"wuid":
+    "bcf9fb5b-fb30-4acd-b30e-b73000007a89","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    ,{
+    "id":
+    4680,"suid":
+    "d3a71598-fdda-4d34-b1d9-e7a5ab9eaee7","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4679,"wuid":
+    "a9d375ff-f041-40c9-8062-a28c82d8d4c4","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    ,{
+    "id":
+    4682,"suid":
+    "7d079ff1-8d86-4021-b530-ee3fc0b6a3ef","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4681,"wuid":
+    "79b37410-b5be-4930-875c-c4eea539d166","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    ,{
+    "id":
+    4684,"suid":
+    "ee4998dc-f6db-40ae-9cf4-e118fe3c49e3","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4683,"wuid":
+    "6592a7a4-3d0c-4bc3-af65-54b08fab0de7","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    ,{
+    "id":
+    4686,"suid":
+    "ecb2802e-5fdf-4705-b466-a42f96275bb7","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4685,"wuid":
+    "9919e48e-a05f-4172-8cac-e70162a5490b","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    ,{
+    "id":
+    4688,"suid":
+    "eaeaa770-656c-41e9-874d-0d69f8bf2c03","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4687,"wuid":
+    "f644529e-e05c-452e-ba14-23d9c4e4f984","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    ,{
+    "id":
+    4690,"suid":
+    "951e356b-9bf2-494f-930b-e10a0a663529","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4689,"wuid":
+    "60104bea-ec2e-43f5-8061-824c60731027","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    ,{
+    "id":
+    4769,"suid":
+    "8ade8128-09f9-4610-b869-a4fbb133180f","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4768,"wuid":
+    "7e088882-fe22-4e24-b117-cd89993e4e4b","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    ,{
+    "id":
+    4771,"suid":
+    "5ba71245-a836-4345-9c48-cb6e7bb4b7cb","name":
+    "test-story","layoutConfiguration":
+    {
+      "position": {
+        "left": 0,
+        "top": 0
+      },
+      "style": {
+        "color": "white"
+      }
+    },"rootwidget":
+    {
+    "Id":
+    4770,"wuid":
+    "b03b1b49-f6c5-4337-ad96-3fb3d0c8de14","wtuid":
+    "widget_parent","type":
+    "dockerWidget","layoutConfiguration":
+    null,"dataConfiguration":
+    null,"widgets":
+    [
+    ]
+    }
+    }
+    
+   
+    ]
+  }

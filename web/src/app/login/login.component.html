@@ -1,0 +1,144 @@
+<div class="kt-grid kt-grid--hor kt-grid--root kt-login kt-login--v1" id="kt_login" style="height: 100%;">
+	<div
+		class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+		<!--begin::Content-->
+		<div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1 kt-login__wrapper" style="width: 50%">
+			<!--begin::Head-->
+
+			<!--end::Head-->
+
+			<!--begin::Body-->
+			<div class="kt-login__body">
+				<!--begin::Signin-->
+				<div class="kt-login__form">
+					<div class="kt-login__title">
+						<h3>{{'t_signin_label'| translate}}</h3>
+					</div>
+
+					<!-- <kt-auth-notice></kt-auth-notice> -->
+
+					<!--begin::Form-->
+					<form class="kt-form" (ngSubmit)="onSubmit(form.value)" [formGroup]="form" autocomplete="off">
+						<div class="form-group">
+							<!-- <label>{{'t_email_login'| translate}}</label> -->
+							<input placeholder="{{'t_email_login'| translate}}" formControlName="username"
+								class="form-control" autocomplete="off">
+							<div *ngIf="submitted && form.controls.username.errors?.required" class="alert alert-danger">
+								<strong>{{ 't_username_required' | translate }}</strong>
+							</div>
+							<div *ngIf="submitted && form.controls.username.hasError('minlength')" class="alert alert-danger">
+								<strong>{{ 't_username_lenght_error' | translate }} </strong>
+							</div>
+							<div *ngIf="submitted && form.controls.username.hasError('maxlength')" class="alert alert-danger">
+								<strong>{{ 't_username_maxlenght_error' | translate }}</strong>
+							</div>
+						</div>
+						<br>
+						<div class="form-group">
+							<!-- <label>{{'t_password'| translate}}</label> -->
+							<input placeholder="{{'t_password'| translate}}" type="password" formControlName="password"
+								class="form-control" autocomplete="off">
+							<div *ngIf="submitted && form.controls.password.errors?.required" class="alert alert-danger">
+								<strong>{{ 't_password_required' | translate }}</strong>
+							</div>
+							<div *ngIf="submitted && form.controls.password.hasError('minlength')" class="alert alert-danger">
+								<strong>{{ 't_password_lenght_error' | translate }}</strong>
+							</div>
+							<div *ngIf="submitted && form.controls.password.hasError('maxlength')" class="alert alert-danger">
+								<strong>{{ 't_password_maxlenght_error' | translate }}</strong>
+							</div>
+						</div>
+						<div>
+							<div *ngIf="showerror" class="alert alert-danger">
+								<strong>{{ 't_incorect_username_or_password' | translate }}</strong>
+							</div>
+						</div>
+						<!--begin::Action-->
+						<div class="kt-login__actions">
+							<label>
+								<input type="checkbox"> {{'t_rememberme'| translate}}
+							</label>
+
+							<a class="kt-link kt-login__link-forgot"></a>
+							<!-- Uncomment this one when forgot-password page exists and remove the next one which does not have routerLink
+					 		<a href="javascript:;" routerLink="/auth/forgot-password" class="kt-link kt-login__link-forgot"> -->
+							<a href="javascript:;" class="kt-link kt-login__link-forgot">
+								{{ 't_forgotpassword' | translate }}
+							</a>
+						</div>
+						<div class="d-flex justify-content-center">
+							<button mat-raised-button color="primary"
+								[ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}"
+								id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary"
+								type="submit">{{'t_signin_button'| translate}}</button>
+							<!-- <button (click)="submit()" [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}" id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary">{{ 't_signin_button' | translate }}</button> -->
+							<!--end::Action-->
+						</div>
+					</form>
+					<!--end::Form-->
+
+					<div class="kt-login__head">
+						<span class="kt-login__signup-label">{{'t_notaccount'| translate}}</span>&nbsp;&nbsp;
+						<a href="javascript:;" routerLink="/register"
+							class="kt-link kt-login__signup-link">{{'t_linkregister'| translate}}</a>
+					</div>
+					<!--begin::Divider-->
+					<!-- <div class="kt-login__divider">
+						<div class="kt-divider">
+							<span></span>
+							<span>{{'global.or'| translate}}</span>
+							<span></span>
+						</div>
+					</div> -->
+					<!--end::Divider-->
+
+					<!--begin::Options-->
+					<!-- <div class="kt-login__options">
+						<a href="https://www.facebook.com" target="_blank" class="btn btn-primary kt-btn">
+							<i class="fab fa-facebook-f"></i>
+							Facebook
+						</a>
+
+						<a href="https://twitter.com" target="_blank" class="btn btn-info kt-btn">
+							<i class="fab fa-twitter"></i>
+							Twitter
+						</a>
+
+						<a href="javascript:;" class="btn btn-danger kt-btn">
+							<i class="fab fa-google"></i>
+							Google
+						</a>
+					</div> -->
+					<!--end::Options-->
+				</div>
+				<!--end::Signin-->
+			</div>
+			<!--end::Body-->
+
+		</div>
+		<!--end::Content-->
+		<!--begin::Aside-->
+		<div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
+			style="background-image: url(./assets/img/login-page-img.png); width: 50%">
+
+			<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+				<div class="kt-grid__item kt-grid__item--middle">
+					<!-- <h4 class="kt-login__subtitle">The ultimate Bootstrap &amp; Angular 7 admin theme framework for next generation web apps.</h4> -->
+				</div>
+			</div>
+			<div class="kt-grid__item">
+				<div class="kt-login__info">
+					<div class="kt-login__copyright">
+						<!-- © {{today|date:'yyyy'}} TellStory -->
+					</div>
+					<!-- <div class="kt-login__menu">
+						<a href="javascript:;" class="kt-link">Privacy</a>
+						<a href="javascript:;" class="kt-link">Legal</a>
+						<a href="javascript:;" class="kt-link">Contact</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<!--begin::Aside-->
+	</div>
+</div>

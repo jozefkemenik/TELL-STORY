@@ -1,0 +1,179 @@
+<div class="row m-0 p-0">
+  <div class="col">
+    <div class="container">
+      <div class="row p-5 mt-1 mb-1" #headingRow>
+        <div class="col text-center">
+          <h2 class="text-dataset-heading m-0">Database console</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="card p-4 m-0 mb-3" [style.height.px]="cardHeight" #card>
+            <div class="row">
+              <div class="col-sm-12" id="htmPane">
+                <ace-editor [(text)]="query"
+                            mode="sql"
+                            [autoUpdateContent]="true"
+                            [durationBeforeCallback]="1"
+                            #editor
+                            style="height:150px;"
+                ></ace-editor>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col">
+                <button type="button" class="btn btn-info btn-pill btn-icon" (click)="executeQuery()">
+                  <i class="fad fa-play"></i>
+                </button>
+                <button type="button" class="ml-2 btn btn-info btn-pill btn-icon"
+                        (click)="showModal(saveModal)">
+                  <i class="fad fa-hdd"></i>
+                </button>
+              </div>
+              <div class="col">
+                <app-switch-bar [(state)]="tableView"
+                                [enabled]="queryResult !== null"
+                                [leftSide]="{icon:'fad fa-list' ,label:'History view'}"
+                                [rightSide]="{icon:'fad fa-table' ,label:'Query view'}"
+                ></app-switch-bar>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-12">
+                <div *ngIf="(!loading) && (queryError !== '')"
+                     class="alert alert-danger alert-dismissible fade show"
+                     role="alert">
+                  {{ queryError }}
+                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div *ngIf="(!loading) && (queryResult)"
+                     class="alert alert-success alert-dismissible"
+                     role="alert">
+                  Success !
+                  <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive mt-2">
+              <app-loading [loading]="loading">
+                <app-db-data-table *ngIf="tableView && queryResult !== null"
+                                   [tableData]="queryResult"
+                                   [tableKeys]="tableKeys"
+                                   [tableHeaders]="tableHeaders()"
+                                   [options]="dbDataTableOptions"
+                                   [loadMoreEnabled]="false"
+                                   [loadMoreLoading]="false"
+                ></app-db-data-table>
+
+                <app-table *ngIf="history && !tableView"
+                           [tableData]="history.queries"
+                           [tableKeys]="historyHeaders()"
+                           [options]="historyTableOptions"
+                           [loadMoreEnabled]="(historyPage * historyPageLength) < history.totalRecords"
+                           [loadMoreLoading]="historyLoadingMore"
+                           (loadMore)="loadMoreHistory()"
+                >
+                  <ng-template let-entry="entry" #customActionColumnTemplate>
+                    <div class="pr-3 text-right dbconsole-table-actions">
+                      <button type="button"
+                              class="btn btn-dbconsole btn-pill btn-sm btn-icon"
+                              (click)="editor.text = entry.query;
+                                          query = entry.query;
+                                          executeQuery()">
+                        <i class="fad fa-history"></i>
+                      </button>
+                      <button type="button" class="ml-2 btn btn-dbconsole btn-pill btn-sm btn-icon"
+                              (click)="editor.text = entry.query">
+                        <i class="fad fa-edit"></i>
+                      </button>
+                    </div>
+                  </ng-template>
+                </app-table>
+              </app-loading>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-2 col-xs-12 sidebar-right text-center p-0" [style.height.px]="sidebarHeight">
+    <perfect-scrollbar>
+    <h2 class="mt-3 mb-4">Saved Queries</h2>
+      <app-loading [loading]="savedQueriesLoading">
+        <div *ngIf="savedQueriesError.length > 0" class="alert alert-danger alert-dismissible fade show"
+             role="alert">
+          {{ savedQueriesError }}
+          <button type="button" class="close mt-1" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div *ngIf="savedQueries.length === 0 && savedQueriesError === ''">
+          <p class="text-muted"><em>Empty</em></p>
+        </div>
+        <table *ngIf="savedQueries.length > 0"
+               class="table table-borderless table-saved-queries table-hover m-0 dbconsole-table">
+          <tbody>
+          <tr *ngFor="let item of savedQueries">
+            <td class="align-middle" (click)="editor.text = item.query">{{item.name}}</td>
+            <td>
+              <button type="button" class="btn btn-info btn-pill btn-sm btn-icon"
+                      (click)="showRemoveModal(item)">
+                <i class="fad fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </app-loading>
+    </perfect-scrollbar>
+  </div>
+</div>
+
+<ng-template #saveModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Save Query</h4>
+    <button type="button" class="close" (click)="hideModal(modalRef)"></button>
+  </div>
+  <div class="modal-body">
+    <app-input-bar leftIcon="fad fa-save" placeholder="Please type name of query"
+                   [(inputValue)]="queryName"></app-input-bar>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="saveQuery()">Save</button>
+    <button type="button" class="ml-2 btn btn-danger" (click)="hideModal(modalRef)">Cancel</button>
+  </div>
+</ng-template>
+
+<ng-template #confirmModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Replace "{{queryToRemove.name}}"?</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal(confirmModalRef)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to
+      replace<br>"<strong>{{queryToRemove.query}}</strong>"<br>with<br>"<strong>{{query}}</strong>"<br>?</p>
+    <button type="button" class="btn btn-default mr-1" (click)="replaceQuery(queryToRemove)">Yes</button>
+    <button type="button" class="btn btn-primary ml-1" (click)="hideModal(confirmModalRef)">No</button>
+  </div>
+</ng-template>
+
+<ng-template #removeModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Remove "{{queryToRemove.name}}"?</h4>
+    <button type="button" class="close" (click)="hideModal(modalRef)"></button>
+  </div>
+  <div class="modal-body">
+    Are you sure you want to remove<br><strong>"{{queryToRemove.query}}"</strong><br>from your saved queries ?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="removeQuery(queryToRemove.id)">Remove</button>
+    <button type="button" class="ml-2 btn btn-danger" (click)="hideModal(modalRef)">Cancel</button>
+  </div>
+</ng-template>

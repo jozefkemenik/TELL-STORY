@@ -1,0 +1,40 @@
+<div class="container pos-abs">
+    <div class="d-flex align-items-center header">
+        <div class="mr-auto header-title justify-content-start">
+            {{'t_yourStories'|translate}} {{stories.length}}/{{total}}
+        </div>
+        <div class="justify-content-end d-flex">
+            <div class="align-content-center mr-2">
+                <div class="ts-input-icon">
+                    <input type="text" class="form-control form-control-pill" placeholder="{{'t_search'|translate}}">
+                    <span class="ts-input-icon-icon ts-input-icon-icon-right">
+                        <i class="flaticon2-search"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="">
+                <button class="btn btn-outline-brand btn-elevate btn-pill" type="button" (click)="createNewStory()"><i
+                        class="flaticon2-plus"></i>{{'t_addStory'|translate}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="content mb-5">
+        <app-infinite-scroll 
+        (onLoad)="onLoad($event)" 
+        [loading]="loading" 
+        [total]="total"  
+        [loadedTotal]="stories.length">
+            <div class="row mx-auto">
+                <div class="col-auto " *ngFor="let story of stories; trackBy: trackByFunction">
+                  <app-atoms-card (click)="showStory(story.id)" [item]="story"></app-atoms-card>
+                </div>
+            </div>          
+        </app-infinite-scroll>
+       
+    </div>
+</div>
+
+
+
+
+

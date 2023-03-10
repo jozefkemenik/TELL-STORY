@@ -1,0 +1,16 @@
+<div class="text-center">
+  <h4>Upload a file containing your data</h4>
+  <span>supported formats .xsd .sds .tga</span>
+  <div class="upload-file-container d-flex text-center lead p-3 mx-auto my-4">
+      <div class="mx-auto align-self-center">
+        <i class="fas fa-upload display-4"></i><br>
+        <p class="mt-3">Drag and drop your dataset here or click to <b>browse</b> files</p>
+      </div>
+
+    <input hidden type="file">
+  </div>
+  <div>
+    <button class="btn btn-pill btn-outline-brand mx-2 my-3 gray-color" (click)="close.emit()"><i class="far fa-times-circle"></i> Close</button>
+    <button class="btn btn-pill btn-outline-brand btn-outline-warning mx-2 my-3 red-color"><i class="far fa-plus"></i> Upload dataset</button>
+  </div>
+</div>

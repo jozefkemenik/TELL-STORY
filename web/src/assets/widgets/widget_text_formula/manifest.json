@@ -1,0 +1,41 @@
+{
+    "name": "widget_text_formula",
+    "label": "t_title",
+    "desc": "t_desc",
+    "icon": "icon.svg",
+    "widgetControls": [
+        {
+            "order": 1,
+            "name": "wc-input",
+            "subjName": "color",
+            "type": "style",
+            "label": "Color",
+            "placeholder": "color",
+            "desc": "",
+            "tt": "this set widget title",
+            "value": "black",
+            "minValue": "",
+            "maxValue": "",
+            "precision": "",
+            "scale": "",
+            "step": ""
+        },
+        {
+            "order": 1,
+            "name": "wc-input",
+            "subjName": "size",
+            "type": "style",
+            "label": "Size",
+            "placeholder": "size text here",
+            "desc": "",
+            "tt": "this set widget size",
+            "value": "16",
+            "minValue": "",
+            "maxValue": "",
+            "precision": "",
+            "scale": "",
+            "step": ""
+        }
+       
+    ]
+}

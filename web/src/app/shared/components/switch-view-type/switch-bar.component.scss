@@ -1,0 +1,35 @@
+:host .switch-bar {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+:host .switch-bar-enabled {
+  color: #868AA8;
+  cursor: pointer;
+}
+
+:host .switch-bar-disabled {
+  color: #74788d;
+}
+
+:host .switch-bar-enabled .switch-bar-option {
+  color: #868AA8;
+}
+
+:host .switch-bar-enabled .switch-bar-option.switch-bar-option-active {
+  color: #2C85F8;
+}
+
+:host .switch-bar-icon {
+  font-size: 2rem;
+  vertical-align: -20%;
+}
+
+:host .switch-bar-enabled .switch-bar-icon {
+  --fa-primary-color: #E3EDFA;
+  --fa-secondary-color: #2C85F8;
+  --fa-primary-opacity: 1;
+  --fa-secondary-opacity: 1;
+  vertical-align: -3pt;
+}

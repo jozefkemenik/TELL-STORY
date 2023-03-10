@@ -1,0 +1,28 @@
+{"datasets":[
+   {
+      "datasetId":235,
+      "datasetName":null,
+      "datasetUID":"1a260646-039f-433a-b8ef-95567555a3a9",
+      "rowsCount":0,
+      "columnsCount":0,
+      "createdDate":"0001-01-01T00:00:00"
+   },
+   {
+      "datasetId":12449,
+      "datasetName":"Taxi Rides 1 billion",
+      "datasetUID":"trips",
+      "rowsCount":"1201024116",
+      "columnsCount":7,
+      "createdDate":"2019-07-11T12:22:34.966596"
+   },
+   {
+      "datasetId":403,
+      "datasetName":"Sample Telco",
+      "datasetUID":"81c6b169-4f8f-4b8b-ae42-3ce550ef5b68",
+      "rowsCount":10000,
+      "columnsCount":7,
+      "createdDate":"2019-07-12T16:26:08.382643"
+   }
+],
+  "totalRecords": 100
+}

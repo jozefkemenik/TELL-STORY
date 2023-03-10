@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="d-flex p-5 mt-1 mb-1" #header>
+    <div class="mr-auto justify-content-start">
+      <h2 class="text-dataset-heading m-0">{{'t_YourDatasets' | translate}}</h2>
+    </div>
+    <div class="justify-content-end d-flex">
+      <!--      <app-search-bar></app-search-bar>-->
+      <a routerLink="/dataset/create" class="btn btn-dataset-create btn-pill pull-right ml-3" href="#" role="button">
+        <i class="fas fa-plus"></i> {{'t_AddDataSet' | translate}}
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card py-3 single-scrollable-content" [style.height.px]="tableCardHeight" #tableCard>
+        <app-dataset-list *ngIf="datasets && (datasets.totalRecords > 0)" 
+          [loading]="loading"
+          [datasets]="datasets.datasets" 
+          [loadingMore]="loadingMore"
+          [loadingMoreEnabled]="(page * pageLength) < datasets.totalRecords" 
+          [actionButton]="true" 
+          [showUuid]="true"
+          (loadMore)="loadMore()">
+        </app-dataset-list>
+      </div>
+    </div>
+  </div>
+</div>

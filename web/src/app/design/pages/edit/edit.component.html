@@ -1,0 +1,60 @@
+
+<app-modal-story  *ngIf="showModal"></app-modal-story>
+
+<div class="ts-aside" id="tsasideid">
+  <app-sidenav></app-sidenav>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light  ts-header ts-header-fixed ">
+  <a class="ts-header-brand active">
+    <a (click)="showDashboard()">
+      <div class="flaticon2-menu" style="font-size:36px"></div>
+    </a>
+  </a>
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [collapse]=isCollapsed>
+    <ul class="navbar-nav mr-auto">
+      <!-- <li *ngFor="let menu of menus" class="nav-item active" [class.active]="menu.active">
+            <a class="nav-link" (click)="onMenuClick(menu)">{{ menu.title | translate}}</a>
+          </li> -->
+    </ul>
+    <div class="my-2 my-lg-0">
+      <div dropdown placement="left">
+        <div dropdownToggle class="btn btn-info btn-icon btn-circle">
+          <i class="la la-user"></i>
+        </div>
+        <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item" href="">???</a></li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a (click)="logout()" class="dropdown-item">{{'t_Logout' | translate}}</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<div class="ts-wrapper">
+  <div *ngIf="!loading">
+    <div class="grid-content">
+      <app-widget-grid class="widget-grid"></app-widget-grid>
+    </div>
+    <div class="right-content sticky">
+      <app-widget-settings [hidden]="!widget.isActive" *ngFor="let widget of widgets; index as i;"
+        [wcManifests]="widget.wcManifests" [wContent]="widget.wContent"></app-widget-settings>
+    </div>
+  </div>
+  <div *ngIf="loading" class="d-flex flex-fill h-100 justify-content-center align-items-center">
+    <div class="spinner-border text-info" style="width: 3rem; height: 3rem;">
+    </div>
+  </div>
+</div>
+
+
+
+

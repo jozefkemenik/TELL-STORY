@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row p-5 mt-1 mb-1" #header>
+    <div class="col-8 align-self-center">
+      <h2 class="text-dataset-heading m-0">Datasets<i class="fas fa-angle-right fa-fw"></i><span class="text-dataset-heading-name">{{ (!loading && !datasetDetailError) ? datasetDetail.datasetName : '' }}</span><button class="btn btn-dataset-settings btn-pill ml-4" role="button"><i class="fas fa-cog"></i> Settings</button></h2>
+    </div>
+    <div class="col-4 align-self-center text-right">
+      <app-switch-bar
+        [(state)]="tableView"
+        [enabled]="datasetDetail && (datasetDetail.columnsCount > 0)"
+        [leftSide]="{
+          icon: 'fa fa-list',
+          label: 'List view'
+        }"
+        [rightSide]="{
+          icon: 'fa fa-table',
+          label: 'Table view'
+        }"
+      ></app-switch-bar>
+    </div>
+  </div>
+</div>
+
+<div [ngClass]="{'container': !tableView, 'container-fluid': tableView}">
+  <div class="row">
+    <div class="col">
+      <div class="card" [ngClass]="{'py-3': !tableView}" [style.height.px]="tableCardHeight" #tableCard>
+        <div class="table-responsive">
+          <app-loading [loading]="loading">
+            <div *ngIf="!tableView">
+              <app-table
+                *ngIf="datasetDetail && (datasetDetail.columnsCount > 0)"
+                [options]="listTableOptions"
+                [tableKeys]="['name', 'datatype', 'unique', 'common']"
+                [tableData]="datasetDetail.datasetColumns"
+              >
+                <ng-template let-column="entry" let-key="key" #customDataColumnTemplate>
+                  <ng-container [ngSwitch]="key">
+                    <ng-container *ngSwitchCase="'name'"><span class="lead">{{ column.columnName }}</span><br><small class="text-muted">0% NULL</small></ng-container>
+                    <ng-container *ngSwitchCase="'datatype'"><app-datatype-badge [datatype]="column.columnType"></app-datatype-badge></ng-container>
+                    <ng-container *ngSwitchCase="'unique'"><span class="lead">1312 K</span><br><small class="text-muted">UNIQUE VALUES</small></ng-container>
+                    <ng-container *ngSwitchCase="'common'"><span class="lead">Brazil</span><br><small class="text-muted">MOST COMMON</small></ng-container>
+                  </ng-container>
+                </ng-template>
+                <ng-template #customActionColumnTemplate>
+                  <button class="pull-right btn btn-dataset-action btn-circle btn-icon"><i class="fas fa-ellipsis-h"></i></button>
+                </ng-template>
+              </app-table>
+            </div>
+            <div *ngIf="!datasetDetailError && (!datasetDetail || datasetDetail.columnsCount === 0)" class="alert alert-warning m-3" role="alert">
+              No data
+            </div>
+            <div *ngIf="datasetDetailError" class="alert alert-danger m-3" role="alert">
+              Can't load data: {{ datasetDetailError }}
+            </div>
+            <div *ngIf="tableView">
+                <app-db-data-table
+                  *ngIf="!tableDataError && datasetDetail && (datasetDetail.columnsCount > 0)"
+                  [loadMoreEnabled]="dbTableLoadMoreEnable"
+                  [loadMoreLoading]="dbTableLoadingMore"
+                  [tableData]="tableData"
+                  [options]="dbTableOptions"
+                  [tableKeys]="getDbTableKeys()"
+                  [tableHeaders]="getDbTableHeaders()"
+                  (orderChange)="changeOrder($event)"
+                  (loadMore)="loadMoreTableData()"
+                >
+                  <ng-template let-columnHeader="columnHeader" #subheaderTemplate>
+                    <small><app-datatype-badge [datatype]="getDatasetColumnDatatype(columnHeader)"></app-datatype-badge></small>
+                  </ng-template>
+                </app-db-data-table>
+              </div>
+            <div
+              *ngIf="!tableDataError && datasetDetail && (datasetDetail.rowsCount === 0)"
+              class="alert alert-warning m-3"
+              role="alert"
+            >
+              No data
+            </div>
+            <div
+              *ngIf="tableDataError"
+              class="alert alert-danger m-3" role="alert"
+            >
+              Can't load data{{ (tableDataError === true) ? '' : ': ' + tableDataError }}
+            </div>
+          </app-loading>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

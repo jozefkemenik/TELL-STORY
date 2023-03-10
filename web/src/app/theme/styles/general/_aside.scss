@@ -1,0 +1,27 @@
+
+$ts-aside-transition: all .3s ease;
+// Aside
+.ts-aside {
+	background-color: $ts-aside-bg-color;
+	box-shadow: 13px -2px 27px -12px rgba(41, 50, 66, 0.075);
+	width: $ts-aside-minimize-width;
+	transition: $ts-aside-transition;
+	overflow: hidden;
+	position: fixed;
+	top: $ts-menu-height;
+	bottom: 0;
+	left: 0;
+	z-index: 98;
+	&.expand{
+		width:$ts-aside-default-width;
+	}
+
+	ul{
+		list-style-type:none;
+		display: block;
+	}
+
+}
+
+
+

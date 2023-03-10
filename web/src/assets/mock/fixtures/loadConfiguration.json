@@ -1,0 +1,52 @@
+{
+    "parameters": {
+        "parentId": 0,
+        "layout": {},
+        "data": 
+        
+        
+        {
+            
+                "binding":{
+                  "dataset":"81c6b169-4f8f-4b8b-ae42-3ce550ef5b68",
+                  "xAxis":{
+                    "name":"Gender",
+                    "columnName":"gender",
+                    "function":"DistinctValues"
+                  },
+                  "yAxis":{
+                    "name":"Visitors Count",
+                    "columnName":"targetId",
+                    "function":"Count"
+                  }
+                ,
+                  "dimensionAxes":[
+                     {
+                        "name":"Dimension1",
+                        "columnName":"age",
+                        "function":"DistinctValues"
+                     }
+                  ],
+                  "metricAxes":[
+                     {
+                        "name":"Metric1",
+                        "columnName":"targetId",
+                        "function":"Count"
+                     }
+                  ],
+                  "ordering":[
+                     {
+                        "axisName":"Metric1",
+                        "orderingType":"Desc"         
+                     }
+                  ],
+                  "limitOffset": {
+                       "limit":"10"
+                  }
+                }
+              }
+
+
+        
+    }
+}

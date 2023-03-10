@@ -1,0 +1,132 @@
+.atom-card {
+	cursor: pointer;
+	margin: 10px;
+	width: 204px;
+	height: 266px;
+	background: #ffffff;
+	box-shadow: 0px 1px 15px rgba(69, 65, 78, 0.08);
+  border-radius: 4px;
+  
+	.atom-card-header {
+		height: 120px;
+		background: #e3edfa;
+		border-radius: 4px;
+    position: relative;
+    
+		.atom-card-balls {
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			background: #2c85f8;
+			border-radius: 50px;
+			transition-property: transform;
+			transition-duration: 0.5s;
+			transition-timing-function: linear;
+			&.xl1 {
+				width: 36px;
+				height: 36px;
+				left: 134px;
+				top: 44px;
+			}
+			&.xl1 {
+				width: 36px;
+				height: 36px;
+				left: 134px;
+				top: 44px;
+			}
+			&.xl2 {
+				width: 36px;
+				height: 36px;
+				left: 35px;
+				top: 10px;
+			}
+			&.xl3 {
+				width: 36px;
+				height: 36px;
+				left: 32px;
+				top: 77px;
+			}
+			&.x1 {
+				left: 16px;
+				top: 24px;
+			}
+			&.x2 {
+				left: 78px;
+				top: 29px;
+			}
+			&.x3 {
+				left: 124px;
+				top: 29px;
+			}
+			&.x4 {
+				left: 172px;
+				top: 19px;
+			}
+			&.x5 {
+				left: 36px;
+				top: 52px;
+			}
+			&.x6 {
+				left: 88px;
+				top: 49px;
+			}
+			&.x7 {
+				left: 184px;
+				top: 57px;
+			}
+			&.x8 {
+				left: 104px;
+				top: 72px;
+			}
+			&.x9 {
+				left: 72px;
+				top: 80px;
+			}
+			&.x10 {
+				left: 134px;
+				top: 90px;
+			}
+			&.x11 {
+				left: 9px;
+				top: 100px;
+			}
+		}
+  }
+  
+	.atom-card-body {
+		height: 146px;
+		display: flex;
+    flex-direction: column;
+    
+		.atom-card-body-title {
+			justify-content: center;
+			display: flex;
+			flex: 1;
+      align-items: center;
+      
+			span {
+				display: block;
+				font-weight: 500;
+				font-size: 15px;
+				line-height: 22px;
+				color: #525672;
+			}
+    }
+    
+		.atom-card-body-date {
+			flex: none;
+			height: 50px;
+			font-family: Poppins;
+			font-style: normal;
+			font-weight: normal;
+			font-size: 12px;
+			line-height: 21px;
+			/* or 175% */
+			display: flex;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			color: #989cac;
+		}
+	}
+}

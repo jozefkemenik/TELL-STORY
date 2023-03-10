@@ -1,0 +1,49 @@
+{
+    "datasetName": null,
+    "datasetUID": "30f8d829-6417-4984-ad15-a5b2948a14c3",
+    "rowsCount": 1000000,
+    "columnsCount": 7,
+    "createdDate": "2019-07-11T12:22:34.966596",
+    "datasetColumns": [
+        {
+            "Id": 360,
+            "columnName": "longitude",
+            "columnType": "System.Double"
+        },
+        {
+            "Id": 361,
+            "columnName": "latitude",
+            "columnType": "System.Double"
+        },
+        {
+            "Id": 362,
+            "columnName": "targetId",
+            "columnType": "System.Int32"
+        },
+        {
+            "Id": 363,
+            "columnName": "genderId",
+            "columnType": "System.Int32"
+        },
+        {
+            "Id": 364,
+            "columnName": "ageId",
+            "columnType": "System.Int32"
+        },
+        {
+            "Id": 365,
+            "columnName": "wealthIndexId",
+            "columnType": "System.Int32"
+        },
+        {
+            "Id": 366,
+            "columnName": "hwOsId",
+            "columnType": "System.Int32"
+        },
+        {
+            "Id": 373,
+            "columnName": "Surname",
+            "columnType": "System.String"
+        }
+    ]
+}

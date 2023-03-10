@@ -1,0 +1,189 @@
+<!-- <mat-sidenav-container>
+  
+    <div fxLayout="row" fxLayoutAlign="center center" class="h-100">
+  
+         <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" fxFlex="80" fxFlex.gt-sm="30" fxFlex.sm="60">
+  
+              <mat-card class="p-0 mat-elevation-z24 box register">
+                  <div fxLayout="column" fxLayoutAlign="center center" class="bg-primary box-header">
+                    <div class="login-logo">TellStory</div>
+                      <a mat-button routerLink="/login">Already have an account? Sign in!</a>
+                  </div>
+                  <mat-card-content fxLayout="column" fxLayoutAlign="end center" class="box-content">
+                      <mat-card fxLayout="column" fxLayoutAlign="center center" class="mat-elevation-z12 box-content-inner">
+                          <span class="box-content-header">Register member</span>  
+                          <mat-form-field class="w-100">
+                            <input matInput placeholder="Full Name" formControlName="name">
+                            <mat-error *ngIf="form.controls.name.errors?.required">Full Name is required</mat-error>
+                            <mat-error *ngIf="form.controls.name.hasError('minlength')">Full Name isn't long enough, minimum of 3 characters</mat-error>
+                          </mat-form-field>
+                          <mat-form-field class="w-100">
+                              <input matInput placeholder="Email" formControlName="email">
+                              <mat-error *ngIf="form.controls.email.errors?.required">Email is required</mat-error>
+                              <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">Invalid email address</mat-error>
+                          </mat-form-field>
+                          <mat-form-field class="w-100">
+                              <input matInput placeholder="Password" formControlName="password" type="password" minlength="6">
+                              <mat-error *ngIf="form.controls.password.errors?.required">Password is required</mat-error>
+                              <mat-error *ngIf="form.controls.password.hasError('minlength')">Password isn't long enough, minimum of 6 characters</mat-error>
+                          </mat-form-field> 
+                          <mat-form-field class="w-100">
+                            <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+                            <mat-error *ngIf="form.controls.confirmPassword.errors?.required">Confirm Password is required</mat-error>
+                            <mat-error *ngIf="form.controls.confirmPassword.hasError('mismatchedPasswords')">Passwords do not match</mat-error>
+                          </mat-form-field>
+                      </mat-card>
+                      <button mat-raised-button color="primary" class="mat-elevation-z12 box-button" type="submit">SIGN UP</button>
+                  </mat-card-content>
+              </mat-card>
+              
+         </form>      
+    
+    </div>
+  
+  </mat-sidenav-container> -->
+
+  <div class="kt-grid kt-grid--hor kt-grid--root kt-login kt-login--v1" id="kt_login" style="height: 100%;">
+    <div
+      class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+  
+      <!--begin::Content-->
+      <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1 kt-login__wrapper" style="width: 50%">
+        <!--begin::Head-->
+        <!-- <div class="kt-login__head">
+        <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
+        <a href="javascript:;" routerLink="/register" class="kt-link kt-login__signup-link">Registration</a>
+      </div> -->
+        <!--end::Head-->
+  
+        <!--begin::Body-->
+        <div class="kt-login__body">
+          <!--begin::Signin-->
+          <div class="kt-login__form">
+            <div class="kt-login__title">
+              <h3>{{'t_signup'| translate}}</h3>
+            </div>
+  
+            <!-- <kt-auth-notice></kt-auth-notice> -->
+  
+            <!--begin::Form-->
+            <form class="kt-form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" autocomplete="off">
+              <div class="form-group">
+                <!-- <label>{{'t_username'| translate}}</label> -->
+                <input type="text" placeholder="{{'t_username'| translate}}" class="form-control"
+                  formControlName="username" />
+                <div *ngIf="submitted && form.controls.username.errors?.required" class="alert alert-danger">
+                  <strong>{{ 't_username_required' | translate }}</strong>
+                </div>
+                <div *ngIf="submitted && form.controls.username.hasError('minlength')" class="alert alert-danger">
+                  <strong>{{ 't_username_lenght_error' | translate }} </strong>
+                </div>
+                <div *ngIf="submitted && form.controls.username.hasError('maxlength')" class="alert alert-danger">
+                  <strong>{{ 't_username_maxlenght_error' | translate }}</strong>
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- <label>{{'t_email'| translate}}</label> -->
+                <input matInput type="email" placeholder="{{'t_email' | translate }}" class="form-control"
+                  formControlName="email" autocomplete="off" />
+                <div *ngIf="submitted && form.controls.email.errors?.required" class="alert alert-danger">
+                  <strong>{{ 't_email_required' | translate }}</strong>
+                </div>
+                <div *ngIf="submitted && form.controls.email.hasError('invalidEmail')" class="alert alert-danger">
+                  <strong>{{ 't_email_error' | translate }}</strong>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <!-- <mat-label>{{'t_password'| translate}}</mat-label> -->
+                <input type="password" placeholder="{{'t_password'| translate}}" formControlName="password"
+                  class="form-control" autocomplete="off" />
+                <div *ngIf="submitted && form.controls.password.errors?.required" class="alert alert-danger">
+                  <strong>{{ 't_password_required' | translate }}</strong>
+                </div>
+                <div *ngIf="submitted && form.controls.password.hasError('minlength')" class="alert alert-danger">
+                  <strong>{{ 't_password_lenght_error' | translate }}</strong>
+                </div>
+                <div *ngIf="submitted && form.controls.password.hasError('maxlength')" class="alert alert-danger">
+                  <strong>{{ 't_password_maxlenght_error' | translate }}</strong>
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- <label>{{'t_confirmpassword'| translate}}</label> -->
+                <input type="password" placeholder="{{'t_confirmpassword'| translate}}" class="form-control"
+                  formControlName="confirmPassword" autocomplete="off" />
+                <div *ngIf="submitted && form.controls.password.errors?.required" class="alert alert-danger">
+                  <strong>{{ 't_password_required' | translate }}</strong>
+                </div>
+                <div *ngIf="submitted && form.controls.password.hasError('minlength')" class="alert alert-danger">
+                  <strong>{{ 't_password_lenght_error' | translate }}</strong>
+                </div>
+                <div *ngIf="submitted && form.controls.password.hasError('maxlength')" class="alert alert-danger">
+                  <strong>{{ 't_password_maxlenght_error' | translate }}</strong>
+                </div>
+                <div *ngIf="submitted && form.controls.confirmPassword.hasError('mismatchedPasswords')" class="alert alert-danger">
+                  <strong>{{ 't_password_mismatch_error' | translate }}</strong>
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- <mat-checkbox name="agree" formControlName="agree">
+                      I agree the <a href="javascript:;">terms & conditions</a>
+                    </mat-checkbox> -->
+              </div>
+              <div>
+                <!-- <mat-error *ngIf="showerror">
+                        <strong>{{ 't_register_error' | translate }}</strong>
+                      </mat-error>  -->
+              </div>
+  
+              <!--begin::Action-->
+              <div class="kt-login__actions">
+                <a class="kt-link kt-login__link-forgot"></a>
+                <!-- <a href="javascript:;" routerLink="/auth/forgot-password" class="kt-link kt-login__link-forgot">
+                      {{ 't_forgotpassword' | translate }}
+                    </a> -->
+                <button routerLink="/login" [disabled]="loading" id="kt_login_signup_cancel"
+                  class="btn btn-secondary btn-elevate kt-login__btn-secondary">{{'t_back'| translate}}</button>
+                <button id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary"
+                  [ngClass]="{'kt-spinner kt-spinner--right kt-spinner--md kt-spinner--light': loading}">{{'t_signup-button'| translate}}</button>
+              </div>
+              <!--end::Action-->
+            </form>
+            <!--end::Form-->
+  
+          </div>
+          <!--end::Signin-->
+        </div>
+        <!--end::Body-->
+  
+      </div>
+      <!--end::Content-->
+      <!--begin::Aside-->
+      <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
+        style="background-image: url(./assets/img/login-page-img.png); width: 50%">
+        <!-- <div class="kt-grid__item">
+          <a href="javascript:;" class="kt-login__logo">
+            <img src="../../assets/img/imgo.jpeg" width=100 alt="">
+          </a>
+        </div> -->
+        <!-- <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+          <div class="kt-grid__item kt-grid__item--middle">
+            <h3 class="kt-login__title">{{'t_welcometext'| translate}}</h3>         
+          </div>
+        </div> -->
+        <div class="kt-grid__item">
+          <div class="kt-login__info">
+            <div class="kt-login__copyright">
+              <!-- © {{today|date:'yyyy'}} TellStory -->
+            </div>
+            <!-- <div class="kt-login__menu">
+              <a href="javascript:;" class="kt-link">Privacy</a>
+              <a href="javascript:;" class="kt-link">Legal</a>
+              <a href="javascript:;" class="kt-link">Contact</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!--begin::Aside-->
+    </div>
+  </div>

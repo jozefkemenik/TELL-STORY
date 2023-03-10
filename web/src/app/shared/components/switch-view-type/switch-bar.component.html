@@ -1,0 +1,14 @@
+<span class="p-2 switch-bar pull-right" [ngClass]="{'switch-bar-enabled': enabled, 'switch-bar-disabled': !enabled}"
+  (click)="state = enabled && !state">
+
+  <span class="switch-bar-option" [ngClass]="{'switch-bar-option-active': !state}">
+    <i class="{{ leftSide.icon }} mr-2"></i>{{ leftSide.label }}
+  </span>
+  
+  <i class="switch-bar-icon fad fa-toggle-on mx-2" [ngClass]="{'fa-rotate-180': !state}"></i>
+
+  <span class="switch-bar-option" [ngClass]="{'switch-bar-option-active': state}">
+    <i class="{{ rightSide.icon }} mr-2"></i>{{ rightSide.label }}
+  </span>
+
+</span>

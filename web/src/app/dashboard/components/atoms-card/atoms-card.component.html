@@ -1,0 +1,12 @@
+<div  class="atom-card  mr-auto ml-auto" >
+    <div class="atom-card-header ">
+        <div class="atom-card-balls xl{{item}}" *ngFor="let item of [1,2,3]"></div>
+        <div class="atom-card-balls thing x{{item}}"
+            *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11]">
+        </div>
+    </div>
+    <div class="atom-card-body">
+        <div class="atom-card-body-title"><span>{{item.name}}</span></div>
+        <span class="atom-card-body-date">{{'t_Created'|translate}}: {{item.createdDate | date:'dd. MM. yyyy'}}</span>
+    </div>
+</div>

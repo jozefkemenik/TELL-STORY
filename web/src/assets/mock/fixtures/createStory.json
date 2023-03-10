@@ -1,0 +1,22 @@
+{
+    "id":4781,
+    "suid":"da25bf35-2e14-4e6b-a964-34a7d411de47",
+    "name":"test-story",
+    "layoutConfiguration":{
+       "position":{
+          "left":0,
+          "top":0
+       },
+       "style":{
+          "color":"white"
+       }
+    },
+    "rootwidget":{
+       "Id":4780,
+       "wuid":"82539aaf-c465-4a5a-8a6f-3460c14f9055",
+       "type":"TellStory.Data.Model.Objects.WidgetType",
+       "layoutConfiguration":null,
+       "dataConfiguration":null,
+       "widgets":[]      
+    }
+ } 

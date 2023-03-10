@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="datatype">
+  <ng-container *ngSwitchCase="'System.Int32'"><span class="badge badge-column-type mr-2 py-1 px-2 font-weight-bold">123</span>Integer</ng-container>
+  <ng-container *ngSwitchCase="'System.Int64'"><span class="badge badge-column-type mr-2 py-1 px-2 font-weight-bold">123456</span>Long integer</ng-container>
+  <ng-container *ngSwitchCase="'System.Double'"><span class="badge badge-column-type mr-2 py-1 px-2 font-weight-bold">1.23</span>Decimal</ng-container>
+  <ng-container *ngSwitchCase="'System.Single'"><span class="badge badge-column-type mr-2 py-1 px-2 font-weight-bold">1.23</span>Single</ng-container>
+  <ng-container *ngSwitchCase="'System.DateTime'"><span class="badge badge-column-type mr-2 py-1 px-2 font-weight-bold">DATE</span>Datetime</ng-container>
+  <ng-container *ngSwitchCase="'System.String'"><span class="badge badge-column-type mr-2 py-1 px-2 font-weight-bold">ABC</span>String</ng-container>
+</ng-container>

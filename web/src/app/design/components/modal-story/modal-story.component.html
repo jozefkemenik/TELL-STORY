@@ -1,0 +1,43 @@
+<ng-template #template>
+
+  <div class="modal-header flex-none ">
+    <h4 class="modal-title pull-left">Create new Story</h4>
+
+  </div>
+  <div class="modal-body">
+
+    <div class="mb-3">
+      <div class="form-group">
+        <label for="storyName">Story Name</label>
+        <div class="ts-input-icon ts-input-icon-left">
+          <input class="form-control" id="storyName" [(ngModel)]="storyName" placeholder="Type here" type="text">
+          <span class="ts-input-icon-icon ts-input-icon-icon-left"><i class="la fa-file-word"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <div class="form-group ">
+        <label>Dataset</label>
+      </div>
+      <div class="scroll-content" >
+      <app-infinite-scroll (onLoad)="onLoad($event)" 
+                           [loading]="loading" 
+                           [total]="total"
+                           [loadedTotal]="datasets.length">
+                  
+                            <app-dataset-list [datasets]="datasets" 
+                            [selectWithRowClick]="true" [selectable]="true"
+                              [selectedDatasets]="selectedDatasets" (selectChange)="selectChange($event)">
+                            </app-dataset-list>                
+      </app-infinite-scroll>
+    </div>
+    </div>
+  </div>
+  <div class="modal-footer justify-content-between flex-none ">
+    <button type="button" class="btn btn-info" (click)="showStories()">Go back to Stories</button>
+    <button type="button" class="btn btn-success" [disabled]="isDisabled()" (click)="setStory()">Create</button>
+  </div>
+
+</ng-template>

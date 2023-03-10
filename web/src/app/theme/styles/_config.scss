@@ -1,0 +1,269 @@
+// State colors
+$ts-state-colors: (
+    // Metronic states
+    
+    brand: (
+        base:#2C85F8,//base:#000059,// #22b9ff,
+        inverse: #ffffff
+    ),
+    light: (
+        base: #ffffff,
+        inverse: #282a3c 
+    ),
+    dark: (
+        base: #282a3c,
+        inverse: #ffffff 
+    ),
+
+    // Bootstrap states
+    //kakackova
+    default:(
+        base:#FFD0A8
+    ),
+    //modra
+    primary: (
+        //base: #000059,
+        base:#525668,
+        inverse: #ffffff
+    ),
+    //zelena
+    success: (
+        base: #33D6D6,
+        inverse: #ffffff
+    ),
+
+    info: (
+        base: #2786fb,
+        inverse: #ffffff
+    ),
+    //cervena
+    warning: (
+        base:  #FF4646,
+        inverse: #111111
+    ),
+    danger: (
+        base: #fd27eb,
+        inverse: #ffffff
+    )    
+);
+
+$ts-base-colors: (
+    label: (
+        1: #a2a5b9,
+        2: #74788d,
+        3: #595d6e,
+        4: #48465b
+    ),
+    shape: (
+        1: #f0f3ff,
+        2: #e8ecfa, 
+        3: #93a2dd,
+        4: #646c9a
+    ),    
+    grey: (
+        1: #f7f8fa, //#f4f5f8
+        2: #ebedf2,
+        3: darken(#ebedf2, 3%),
+        4: darken(#ebedf2, 6%)
+    )    
+) ;
+
+
+
+
+
+// Social network colors
+$ts-social-colors: (
+    facebook: (
+        base: #3b5998,
+        inverse: #ffffff
+    ),
+    google: (
+        base: #dc4e41,
+        inverse: #ffffff
+    ),
+    twitter: (
+        base: #4AB3F4,
+        inverse: #ffffff
+    ),
+    instagram: (
+        base: #517fa4,
+        inverse: #ffffff
+    ),
+    youtube: (
+        base: #b31217,
+        inverse: #ffffff
+    ),
+    linkedin: (
+        base: #0077b5,
+        inverse: #ffffff
+    )
+) ;
+
+$ts-page-bg-color: #f9f9fc;  // page bg color
+
+// Root Font Settings
+$ts-font-families: (
+    regular: 'Poppins',  
+    heading: 'Poppins'
+) ; 
+
+// Root Font Settings
+$ts-font-size: (
+    size: (
+        desktop: 13px,
+        tablet: 12px,
+        mobile: 12px
+    ), 
+    weight: 300
+) ; 
+
+// General Link Settings
+$ts-font-color: (
+    text: #646c9a,
+    link: (
+        default: ts-state-color(brand),
+        hover: darken(ts-state-color(brand), 6%)
+    )
+) ; 
+
+// Portlet settings
+$ts-portlet: (
+    min-height: (
+        default: (
+            desktop: 60px,
+            mobile: 50px
+        ),
+        sm: (
+            desktop: 50px,
+            mobile: 40px
+        ),
+        lg: (
+            desktop: 80px,
+            mobile: 60px
+        ),
+        xl: (
+            desktop: 100px,
+            mobile: 80px
+        )
+    ),
+    space: (
+        desktop: 25px,
+        mobile: 15px
+    ),
+    bottom-space: (
+        desktop: 20px,
+        mobile: 20px
+    ),
+    border-color: ts-base-color(grey, 2),
+    bg-color: #ffffff,
+    shadow: 0px 0px 30px 0px rgba(82,63,105,0.05)
+) ;
+
+
+// Layout Breakpoints(bootstrap responsive breakpoints)
+// Define the minimum and maximum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries.
+$ts-media-breakpoints: (
+    // Extra small screen / phone
+    xs: 0,
+
+    // Small screen / phone
+    sm: 576px,
+    
+    // Medium screen / tablet
+    md: 768px,
+    
+    // Large screen / desktop
+    lg: 1024px, //1024px,
+    
+    // Extra large screen / wide desktop
+    xl: 1399px
+) ;
+
+// Page padding
+$ts-page-padding: (
+	desktop: 25px,
+	mobile: 15px
+) ;
+
+
+// Brand Color
+$ts-brand-hover-color: #f5f6fc;
+// Secondary Brand Color
+$ts-secondary-brand-color: #fbce44;
+
+// Page bg color
+$ts-page-bg-color: #f9f9fc;  // page bg color
+
+
+// Layout
+$ts-menu-height: 80px;
+$ts-aside-minimize-width: 80px;
+
+//aside
+$ts-aside-default-width: 445px;
+
+//colors aside
+$ts-aside-color:ts-base-color(grey, 1);
+$ts-aside-color-hover:#FF4646;
+
+$ts-aside-bg-color:ts-brand-color();
+$ts-aside-expand-bg-color: #F8F8FB;
+
+$ts-aside-expand-bg-box-color: #fff;
+$ts-aside-expand-bg-box-color-hover: lighten(#FF4646,20%);
+
+$ts-aside-expand-border-box-color:ts-base-color(grey, 1);;
+$ts-aside-expand-border-box-color-hover: #FF4646;
+
+// Page padding
+$ts-page-padding: (
+	desktop: 25px,
+	mobile: 15px
+);
+
+// Page container
+$ts-page-container-width: 1380px; //  fixed page width
+
+
+
+
+
+// Global rounded border mode
+$ts-rounded: true ;
+
+// Border Radius
+$ts-border-radius: 4px ;
+
+// Transition
+$ts-transition: all 0.3s ;
+
+// Modal Z-index
+$ts-modal-zindex: 1050 ;
+
+// dropdown Z-index
+$ts-dropdown-zindex: 95 ;
+
+// Dropdown shadow
+$ts-dropdown-shadow: 0px 0px 50px 0px rgba(82,63,105, 0.15) ;
+
+
+
+
+$ts-action-icons: (
+    close: '\f191',
+    down: '\f110',
+    up: '\f113',
+    left: '\f111',  
+    right: '\f112',
+    plus: '\f2c2',
+    minus: '\f28e'
+) ;
+
+
+$ts-action-bold-icons: (
+    down: '\f1b1',
+    up: '\f1b3',
+    left: '\f1b2',  
+    right: '\f1a9'
+) ;

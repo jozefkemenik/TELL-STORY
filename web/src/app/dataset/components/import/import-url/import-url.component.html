@@ -1,0 +1,9 @@
+<div class="text-center">
+  <h4>Import URL containing your data</h4>
+  <span>supported formats .xsd .sds .tga</span>
+  <div class="my-4">
+    <app-input-bar leftIcon="fad fa-download" placeholder="Import URL" [(inputValue)]="url"></app-input-bar>
+  </div>
+  <button class="btn btn-pill mx-2 my-3 gray-color" (click)="close.emit()"><i class="far fa-times-circle"></i> Close</button>
+  <button class="btn btn-pill mx-2 my-3 red-color" (click)="importUrl()"><i class="far fa-plus"></i> Import dataset</button>
+</div>

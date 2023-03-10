@@ -1,0 +1,205 @@
+
+.col.first {
+    padding:0 5px 0 10px;
+}
+
+.col.last {
+    padding:0 10px 0 5px;
+}
+
+.wc-sub-header {
+    padding: 10px 0 0 0;  
+    display: block;
+
+    i { 
+        background: #F6F6F9;
+        border-radius: 50%;
+        font-size: 20px;
+        line-height: 18px;
+        color: #2C85F8;
+        padding: 2px
+    }
+
+    label {
+        padding:0 16px!important;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.87);
+        margin: 0;
+    }
+}
+
+.btn.btn-fn {
+    height: 45px;
+
+    .fn-type {
+        //display: table-cell;
+        background-color: #F7F8FA;
+        vertical-align:middle;
+        //width: 60px;
+        float: left;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 15px;
+        padding-bottom: 16px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+
+        :hover {
+            background-color: #F7F8FA;
+        }
+    } 
+
+    .btn-content {
+        position: relative;
+        float: right;
+        font-style: normal;
+        font-weight: normal;
+        font-family: Poppins;
+        font-size: 15px;
+        line-height: 12px;
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-items: left; 
+        border: none;     
+        margin-left: 15px; 
+        
+        .ts-info-type {
+            margin-left: 10px;
+            font-size: 11px;
+            line-height: 12px;
+            font-weight: bold;
+            font-family: Roboto Mono;
+            font-style: normal;
+            align-items: center;
+            text-align: center;
+            color: #2C85F8;
+            background: #E3EDFA;
+            border-radius: 4px;
+          }
+
+        span {
+            float:right;
+        }
+    }
+}
+
+.form-group .btn-group, .w-100 {
+    height: 45px;
+    background: #FFFFFF;   
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-top: 15px;
+    
+    :hover{
+        background: #F7F8FA;
+    }
+  }
+
+.btn-outline-primary {
+    border: 1px solid #E6E6E6 !important;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 12px;
+    padding: 0%;
+
+    display: flex;
+    align-items: center;
+
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    :hover{
+        background: #F7F8FA;
+    }
+  }
+
+  .show > .btn-outline-primary.dropdown-toggle {
+    color: #525668;
+    background-color: #E6E6E6;
+  }
+
+  
+  .btn-dataset {
+    padding-left: 15px;
+        }
+
+.dd-content-function {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    width: 350px;
+
+}
+
+.xAxis {
+    top: -60px  
+}
+
+.yAxis {
+    top: -120px
+} 
+
+.custom-label{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+}
+
+// We need to use ::ng-deep to overcome view encapsulation
+::ng-deep {
+    .custom-slider .ng5-slider .ng5-slider-pointer {
+        cursor: pointer;
+        width: 22px;
+        height: 22px;
+        top: -10px;
+        background-color: #2C85F8;
+        z-index: 3;
+        border-radius: 16px;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-pointer:after {
+        content: '';
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        border-radius: 16px;
+        background: #fff;
+    }
+
+    .custom-slider .ng5-slider .ng5-slider-bar {
+        background: #e1e4e9;
+        height: 2px;
+      }
+      
+      .custom-slider .ng5-slider .ng5-slider-selection {
+        background: #2C85F8;
+      }
+
+      .custom-slider .ng5-slider .ng5-slider-tick {
+        width: 1px;
+        height: 10px;
+        margin-left: 4px;
+        border-radius: 0;
+        background: #e1e4e9;
+        top: -1px;
+      }
+
+  }
+
+

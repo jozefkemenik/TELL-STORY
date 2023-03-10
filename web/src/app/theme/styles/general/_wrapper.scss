@@ -1,0 +1,18 @@
+.ts-wrapper{
+    display:flex;
+    padding-top: $ts-menu-height;
+    padding-left: $ts-aside-minimize-width;
+    flex-direction: column;
+    flex:1 auto;
+    height:100%;
+    overflow: auto;
+}
+
+.ts-wrapper-top{
+    display:flex;
+    padding-top: $ts-menu-height;
+    flex-direction: column;
+    flex:1 auto;
+    height:100%;
+    overflow: auto;
+}

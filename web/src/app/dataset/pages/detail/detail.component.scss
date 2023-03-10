@@ -1,0 +1,65 @@
+.text-dataset-heading {
+  color: #3F4047;
+}
+
+.text-dataset-heading .text-dataset-heading-name {
+  color: #2C85F8;
+}
+
+.btn-dataset-settings {
+  color: #868AA8;
+  background-color: #EBEDF2;
+  border-color: #EBEDF2
+}
+
+table.table-datasets {
+  color: #575962;
+}
+
+.dataset-view-switch {
+  color: #868AA8;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.dataset-view-switch-disabled {
+  color: #74788d;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.dataset-view-switch .dataset-view-switch-option {
+  color: #868AA8;
+}
+
+.dataset-view-switch .dataset-view-switch-option.dataset-view-active {
+  color: #2C85F8;
+}
+
+.dataset-view-switch-icon {
+  font-size: 2rem;
+  vertical-align: -20%;
+}
+
+.dataset-view-switch .dataset-view-switch-icon {
+  color: #2C85F8;
+}
+
+table.table-dataset-detail-data thead {
+  background-color: #F9F9FC;
+  color: #575962;
+}
+
+table.table-dataset-detail-data tbody {
+  color: #868AA8;
+}
+
+i.dataset-data-sort-icon {
+  cursor: pointer;
+}

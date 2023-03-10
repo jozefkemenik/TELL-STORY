@@ -1,0 +1,386 @@
+//
+// Global Mixins
+//
+
+
+
+
+@mixin ts-clearfix() {
+	&:before, 
+	&:after {
+		content: " "; // 1
+		display: table; // 2
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin ts-button-reset() {
+    appearance: none;
+    box-shadow: none;
+    border-radius: none; 
+    border: none;
+    cursor: pointer;
+    background: none;
+    outline: none !important; 
+    margin: 0;
+    padding: 0;
+}
+    
+@mixin ts-input-reset() {
+	border: 0;
+	background: none;
+	outline: none !important;
+	box-shadow: none;
+}
+
+@mixin ts-btn-reset() {
+    border: 0;
+    background: none;
+    outline: none !important;
+    box-shadow: none;
+    outline: none !important;
+}
+
+@mixin ts-fix-fixed-position-lags() {
+	// webkit hack for smooth font view on fixed positioned elements
+	-webkit-backface-visibility:hidden; 
+	backface-visibility:hidden; 
+}
+
+@mixin ts-fix-animation-lags() {
+    transform: translateZ(0); 
+    -webkit-transform-style: preserve-3d;
+}
+
+@mixin ts-attr($attr, $value, $important: '') {
+    @if  $value != null  {
+        #{$attr}: #{$value} #{$important}; 
+    } 
+}
+
+@mixin ts-hack-ie {
+	@media screen\0 {
+		@content;
+	}
+}
+
+@mixin ts-hack-edge-all {
+	@supports (-ms-ime-align:auto) {
+		@content;
+	}
+}
+
+@mixin ts-rounded {
+    @if $ts-rounded == true {
+       @content;
+    }
+}
+
+@mixin ts-not-rounded {
+    @if $ts-rounded == false {
+        @content;
+    }
+}
+
+// Input placeholder color
+@mixin ts-input-placeholder($color) {
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+    // See https://github.com/twbs/bootstrap/pull/11526
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    // Internet Explorer 10+
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+    // Safari and Chrome
+}
+
+@mixin ts-hover-transition {
+    transition: $ts-transition;
+
+    &:hover {
+        transition: $ts-transition;
+    }
+}
+
+@mixin ts-transition {
+    transition: $ts-transition;
+}
+
+// Icon Sizing
+// SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
+@mixin ts-icons-size($config) {
+    // Lineawesome
+    [class^="la-"], 
+    [class*=" la-"] {
+        font-size: ts-get($config, lineawesome);
+    } 
+
+    // Fontawesome 
+    [class^="fa-"], 
+    [class*=" fa-"] {
+        font-size: ts-get($config, fontawesome);
+    } 
+
+    // Flaticon 
+    [class^="flaticon-"], 
+    [class*=" flaticon-"],
+    [class^="flaticon2-"], 
+    [class*=" flaticon2-"] {
+        font-size: ts-get($config, flaticon);
+    }
+}
+
+// Icon attr
+// SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
+@mixin ts-icons-style($attr, $config) {
+    // lineawesome
+    [class^="la-"], 
+    [class*=" la-"] {
+        #{$attr}: ts-get($config, lineawesome);
+    } 
+
+    // Fontawesome 
+    [class^="fa-"], 
+    [class*=" fa-"] {
+        #{$attr}: ts-get($config, fontawesome);
+    } 
+
+    // Flaticon 
+    [class^="flaticon-"], 
+    [class*=" flaticon-"],
+    [class^="flaticon2-"], 
+    [class*=" flaticon2-"] {
+        #{$attr}: ts-get($config, flaticon);
+    }
+}
+
+// SASS Map:  (lineawesome: 1.1rem, fontawesome: 1.2rem, flaticon: 1.1rem)
+@mixin ts-icons {
+    [class^="la-"], 
+    [class*=" la-"],
+    [class^="fa-"], 
+    [class*=" fa-"],
+    [class^="flaticon-"], 
+    [class*=" flaticon-"],
+    [class^="flaticon2-"], 
+    [class*=" flaticon2-"] {
+        @content;
+    }
+}
+
+// Lineawesome icon
+@mixin ts-la-icon($icon) {
+    font-family: "LineAwesome";
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    
+    &:before {
+        content: "#{$icon}";
+    }
+}
+
+@mixin ts-la-icon-change($icon) {
+    &:before {
+        content: "#{$icon}";
+    }
+}
+
+@mixin ts-flaticon2-icon($icon) {
+    font-family: Flaticon2;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    content: "#{$icon}";
+}
+
+// Lineawesome icon
+@mixin ts-la-icon-self($icon) {
+    font-family: "LineAwesome";
+    text-decoration: inherit;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    content: "#{$icon}";
+}
+
+// Close icon
+@mixin ts-close-icon($self:null) {
+    @if $self == true {
+        @include ts-la-icon-self( ts-get($ts-action-icons, close) );
+    } @else {
+        @include ts-la-icon( ts-get($ts-action-icons, close) );
+    }
+}
+
+// Arrow icon
+@mixin ts-arrow-icon($dir, $self:null) {
+    @if $dir == down {
+        @if $self == true {
+            @include ts-la-icon-self( ts-get($ts-action-icons, down) );
+        } @else {
+            @include ts-la-icon( ts-get($ts-action-icons, down) );
+        }
+    }
+
+    @if $dir == up {
+        @if $self == true {
+            @include ts-la-icon-self( ts-get($ts-action-icons, up) );
+        } @else {
+            @include ts-la-icon( ts-get($ts-action-icons, up) );
+        }
+    }
+
+    @if $dir == left {
+        @if $self == true {
+            @include ts-la-icon-self( ts-get($ts-action-icons, left) );
+        } @else {
+            @include ts-la-icon( ts-get($ts-action-icons, left) );
+        }
+    }
+
+    @if $dir == right {
+        @if $self == true {
+            @include ts-la-icon-self( ts-get($ts-action-icons, right) );
+        } @else {
+            @include ts-la-icon( ts-get($ts-action-icons, right) );
+        }
+    }
+}
+
+// Svg icon color 
+@mixin ts-svg-icon-color($color) {
+    g {
+        [fill] {
+            transition: fill 0.3s ease;
+            fill: $color;
+        }
+    }
+
+    &:hover {
+        g {
+            [fill] {
+                transition: fill 0.3s ease;
+            }
+        }
+    }
+}
+
+// Breakpoint mixins
+// Layout Breakpoints
+// Define the minimum and maximum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries.
+
+@mixin ts-media-below($width) {
+    @media (max-width: #{ts-media-breakpoint($width)}) {
+        @content;
+    }
+}
+
+@mixin ts-media-above($width) {
+    @media (min-width: #{ts-media-breakpoint($width) + 1px}) {
+        @content;
+    }
+}
+
+@mixin ts-media-range($from, $to) {
+    @media (min-width: #{ts-media-breakpoint($from) + 1px}) and (max-width: #{ts-media-breakpoint($to)}) {
+        @content;
+    }
+}
+
+@mixin ts-minimal-desktop {
+    @media (min-width: #{ts-media-breakpoint(lg) + 1px}) and (max-width: #{ts-media-breakpoint(xl)}) {
+        @content;
+    }
+}
+
+@mixin ts-minimal-desktop-and-below {
+    @media (max-width: #{ts-media-breakpoint(xl)}) {
+        @content;
+    }
+}
+
+@mixin ts-desktop {
+    @media (min-width: #{ts-media-breakpoint(lg) + 1px}) {
+        @content;
+    }
+}
+
+@mixin ts-desktop-xl {
+    @media (min-width: #{ts-media-breakpoint(xl) + 1px}) {
+        @content;
+    }
+}
+
+@mixin ts-desktop-xxl {
+    @media (min-width: #{ts-media-breakpoint(xxl) + 1px}) {
+        @content;
+    }
+}
+
+@mixin ts-desktop-and-tablet {
+    @media (min-width: #{ts-media-breakpoint(md) + 1px}) {
+        @content;
+    }
+}
+
+@mixin ts-tablet {
+    @media (min-width: #{ts-media-breakpoint(md) + 1px}) and (max-width: #{ts-media-breakpoint(lg)}) {
+        @content;
+    }
+}
+
+@mixin ts-tablet-and-mobile {
+    @media (max-width: #{ts-media-breakpoint(lg)}) {
+        @content;
+    }
+}
+
+@mixin ts-mobile {
+    @media (max-width: #{ts-media-breakpoint(md)}) {
+        @content;
+    }
+} 
+
+@mixin ts-mobile-sm {
+    @media (max-width: #{ts-media-breakpoint(sm)}) {
+        @content;
+    }
+} 
+
+@mixin ts-responsive-below($width) {
+    @media (max-width: #{$width}) {
+      @content;
+    }
+}
+
+@mixin ts-responsive-above($width) {
+    @media (min-width: #{$width}) {
+      @content;
+    }
+}
+
+@mixin ts-responsive-range($from, $to) {
+    @media (min-width: #{$from}) and (max-width: #{$to}) {
+      @content;
+    }
+}

@@ -1,0 +1,52 @@
+
+
+.card{
+display: flex;
+flex-grow: 1;
+flex-direction: column;
+box-shadow: 0 0 13px 0 rgba(82,63,105,.05);
+background-color: #fff;
+margin-bottom: 20px;
+border-radius: 4px;
+.card-body
+{    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 4px;
+
+
+    .ts-infobox-header{
+        margin-bottom: 2rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+       .ts-infobox-title{
+        font-size: 2rem;
+        color: #48465b;
+       }
+
+       .ts-infobox-badge{
+        margin: auto 0 auto auto;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: #22b9ff;
+        background-color: rgba(34, 185, 255, 0.15);
+       }
+    }
+
+    .ts-infobox-body{
+        font-weight: 400;
+        color: #9392a0;
+        font-size: 1.15rem;
+        line-height: 2rem;
+    }
+
+}
+}
+
+

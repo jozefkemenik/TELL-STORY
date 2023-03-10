@@ -1,0 +1,11 @@
+:host th {
+  background-color: #F9F9FC;
+}
+
+:host td {
+  color: #868AA8;
+}
+
+:host ::ng-deep .ps__rail-y {
+  z-index: 1021;
+}

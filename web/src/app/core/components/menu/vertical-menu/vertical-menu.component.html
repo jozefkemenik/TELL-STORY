@@ -1,0 +1,43 @@
+<div class="v-menu">
+    <ul class="v-menu-group">
+        <li *ngFor="let menu of groups" class="v-menu-group-item"  [class.active]="menu.isActive" 
+        (click)="onOpenSidebar(menu)">
+            <a class="button" fxLayout="row" [fxLayoutAlign]="'center center'">
+                <i class="{{menu.iconFA}} v-menu-group-item-icon"></i>
+            </a>
+        </li>
+    </ul>
+    <div class="v-menu-content">
+
+            <perfect-scrollbar >
+                <ul class="v-menu-content-subgroups">
+                    <li *ngFor="let subGroup of subGroups">
+
+                        <div class="v-menu-content-subgroups-title">
+                            <div class="title-icon">
+                                <i class="la {{subGroup.iconFA}}"></i>
+                            </div>
+                            <div class="title-label">
+                                <span>{{subGroup.tkTitle | translate}}</span>
+                            </div>
+                         </div>
+                        <div class="v-menu-content-subgroups-section">
+                        <div *ngFor="let menu of subGroup.widgets" class="v-menu-content-subgroups-section-item">
+                            <a (click)="onMenuClick(menu, $event)" class="v-menu-content-subgroups-section-item-button">
+                                <!-- <div class="v-menu-sub-group-item-content"></div> -->
+                                <div class="v-menu-content-subgroups-section-item-image"
+                                    [ngStyle]="{'background-image':'url(/assets/widgets/'+menu.wtuid+'/icon.svg)'}">
+                                </div>
+                                <div class="v-menu-content-subgroups-section-item-title">
+                                    <p>{{menu.tkTitle | translate}}</p>
+                                </div>
+                                <div class="desc-hover">{{menu.tkDesc | translate}}</div>
+                            </a>
+                        </div>
+                        </div>
+                    </li>
+                </ul>
+            </perfect-scrollbar>
+     
+    </div>
+</div>
